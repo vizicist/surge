@@ -1,4 +1,0 @@
-# Compiled WASM demo artifacts — regenerate with the `surgewasm` target and
-# copy from build_wasm/web/. Not committed (large binary).
-web/surge.js
-web/surge.wasm
