@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Surge XT — WebAssembly Demo</title>
+<style>
+  :root {
+    --bg: #1a1d23; --panel: #23272f; --ink: #e8eaed; --muted: #9aa0a6;
+    --accent: #ff9500; --accent2: #4a9eff; --key: #f4f4f4; --keyb: #2a2a2a;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    background: var(--bg); color: var(--ink); -webkit-font-smoothing: antialiased;
+  }
+  header { padding: 20px 24px 8px; }
+  h1 { margin: 0; font-size: 20px; font-weight: 650; letter-spacing: .3px; }
+  h1 span { color: var(--accent); }
+  .sub { color: var(--muted); font-size: 13px; margin-top: 4px; }
+  main { max-width: 900px; margin: 0 auto; padding: 12px 24px 48px; }
+  .panel {
+    background: var(--panel); border: 1px solid #333842; border-radius: 12px;
+    padding: 18px 20px; margin-top: 16px;
+  }
+  .row { display: flex; flex-wrap: wrap; gap: 22px; align-items: center; }
+  .ctl { display: flex; flex-direction: column; gap: 6px; min-width: 130px; }
+  .ctl label { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: .5px; }
+  select, button {
+    font: inherit; color: var(--ink); background: #2c313a; border: 1px solid #3a4049;
+    border-radius: 8px; padding: 8px 10px; cursor: pointer;
+  }
+  button.primary { background: var(--accent); color: #201400; border: none; font-weight: 650; }
+  button:disabled { opacity: .5; cursor: default; }
+  input[type=range] { width: 160px; accent-color: var(--accent2); }
+  .val { font-variant-numeric: tabular-nums; color: var(--ink); font-size: 13px; }
+  #status { font-size: 13px; color: var(--muted); margin-top: 10px; min-height: 18px; }
+  #status.err { color: #ff6b6b; }
+
+  .section-title {
+    font-size: 14px; font-weight: 650; margin-bottom: 14px; color: var(--ink);
+    display: flex; align-items: center; gap: 10px;
+  }
+  .section-title::before { content: ""; width: 4px; height: 15px; background: var(--accent); border-radius: 2px; }
+  .tag { font-size: 11px; font-weight: 500; color: var(--muted); background: #2c313a; padding: 2px 8px; border-radius: 10px; }
+
+  /* keyboard */
+  .kb-wrap { margin-top: 18px; overflow-x: auto; }
+  .kb { position: relative; height: 150px; display: inline-flex; user-select: none; touch-action: none; }
+  .wkey {
+    position: relative; width: 38px; height: 150px; background: var(--key);
+    border: 1px solid #999; border-radius: 0 0 6px 6px; margin-left: -1px;
+    display: flex; align-items: flex-end; justify-content: center; padding-bottom: 8px;
+    color: #666; font-size: 10px;
+  }
+  .wkey.down { background: linear-gradient(#ffd9a0, var(--accent)); color: #7a4a00; }
+  .bkey {
+    position: absolute; top: 0; width: 24px; height: 95px; background: var(--keyb);
+    border: 1px solid #000; border-radius: 0 0 5px 5px; z-index: 2;
+    color: #bbb; font-size: 9px; display: flex; align-items: flex-end; justify-content: center; padding-bottom: 6px;
+  }
+  .bkey.down { background: linear-gradient(#c47400, #ff9500); color: #201400; }
+  .hint { color: var(--muted); font-size: 12px; margin-top: 12px; line-height: 1.5; }
+  code { background: #2c313a; padding: 1px 5px; border-radius: 4px; font-size: 12px; }
+</style>
+</head>
+<body>
+<header>
+  <h1><span>Surge XT</span> — WebAssembly Demo</h1>
+  <div class="sub">The Surge XT synthesis engine, compiled to WebAssembly and running in your browser.</div>
+</header>
+<main>
+  <div class="panel">
+    <div class="row">
+      <button id="power" class="primary">▶ Start Audio</button>
+      <div class="ctl">
+        <label for="osc">Oscillator</label>
+        <select id="osc" disabled></select>
+      </div>
+      <div class="ctl">
+        <label for="bend">Pitch Bend</label>
+        <input id="bend" type="range" min="-8192" max="8191" value="0" disabled />
+      </div>
+      <div class="ctl">
+        <label for="gain">Volume</label>
+        <input id="gain" type="range" min="0" max="100" value="80" disabled />
+      </div>
+      <div class="ctl">
+        <label>Engine</label>
+        <span class="val" id="engineInfo">not loaded</span>
+      </div>
+    </div>
+    <div id="status">Click “Start Audio”, then play the keys below (or use your computer keyboard).</div>
+  </div>
+
+  <div class="panel">
+    <div class="section-title">Factory Patches <span class="tag" id="fac_count"></span></div>
+    <div class="row">
+      <div class="ctl" style="min-width:180px">
+        <label for="fac_cat">Category</label>
+        <select id="fac_cat" disabled></select>
+      </div>
+      <div class="ctl" style="min-width:240px">
+        <label for="fac_patch">Patch</label>
+        <select id="fac_patch" disabled></select>
+      </div>
+      <button id="fac_prev" disabled title="Previous patch">◀</button>
+      <button id="fac_next" disabled title="Next patch">▶</button>
+      <button id="fac_aud" disabled title="Play a short phrase">♪ Audition</button>
+    </div>
+    <div id="fac_info" class="sub" style="margin-top:12px">
+      No patch loaded — using the engine’s default init patch.
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="section-title">3rd-Party Patches <span class="tag" id="tp_count"></span></div>
+    <div class="row">
+      <div class="ctl" style="min-width:180px">
+        <label for="tp_cat">Author / Pack</label>
+        <select id="tp_cat" disabled></select>
+      </div>
+      <div class="ctl" style="min-width:240px">
+        <label for="tp_patch">Patch</label>
+        <select id="tp_patch" disabled></select>
+      </div>
+      <button id="tp_prev" disabled title="Previous patch">◀</button>
+      <button id="tp_next" disabled title="Next patch">▶</button>
+      <button id="tp_aud" disabled title="Play a short phrase">♪ Audition</button>
+    </div>
+    <div id="tp_info" class="sub" style="margin-top:12px">
+      Community patches, organized by author / pack.
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="kb-wrap"><div class="kb" id="kb"></div></div>
+    <div class="hint">
+      Computer keyboard: <code>A W S E D F T G Y H U J</code> = white/black keys of the lower octave,
+      <code>K O L P ;</code> continue upward. <code>Z</code> / <code>X</code> shift the octave down / up.
+      This demo boots the engine’s default init patch; use the Oscillator selector to switch osc type.
+    </div>
+  </div>
+</main>
+
+<script src="surge.js"></script>
+<script>
+(() => {
+  "use strict";
+  const OSC_NAMES = ["Classic","Sine","Wavetable","Window","FM2","FM3","S&H Noise","Alias","String","Twist","Modern"];
+  const statusEl = document.getElementById("status");
+  const powerBtn = document.getElementById("power");
+  const oscSel   = document.getElementById("osc");
+  const bendEl   = document.getElementById("bend");
+  const gainEl   = document.getElementById("gain");
+  const engineInfo = document.getElementById("engineInfo");
+  const kbEl = document.getElementById("kb");
+
+  let ctx, bridge, node, gainNode, blockSize;
+  let auditionTimers = [];
+  let baseOctave = 4;
+  const held = new Set();          // midi note numbers currently on
+  const keyToNote = new Map();     // computer-key -> midi note (as pressed)
+
+  function setStatus(msg, isErr) { statusEl.textContent = msg; statusEl.className = isErr ? "err" : ""; }
+
+  // ---- build a 2-octave on-screen keyboard ----
+  const WHITE = [0,2,4,5,7,9,11];
+  const BLACK = [1,3,6,8,10];
+  function buildKeyboard() {
+    kbEl.innerHTML = "";
+    const octaves = 2, whiteW = 38;
+    let whiteCount = 0;
+    // white keys, left to right
+    for (let o = 0; o < octaves; o++) {
+      for (const s of WHITE) {
+        const el = document.createElement("div");
+        el.className = "wkey"; el.dataset.semi = o*12 + s;
+        kbEl.appendChild(el);
+        whiteCount++;
+      }
+    }
+    // black keys, positioned over the gap after their preceding white key
+    for (let o = 0; o < octaves; o++) {
+      for (const bs of BLACK) {
+        const leftWhite = WHITE.filter(w => w < bs).length - 1 + o*7;
+        const el = document.createElement("div");
+        el.className = "bkey"; el.dataset.semi = o*12 + bs;
+        el.style.left = (leftWhite*whiteW + whiteW - 12) + "px";
+        kbEl.appendChild(el);
+      }
+    }
+    kbEl.style.width = (whiteCount*whiteW) + "px";
+  }
+
+  function midiFor(semi) { return (baseOctave+1)*12 + Number(semi); } // MIDI: C4=60 at octave 4
+
+  function noteOn(midi, fromKey) {
+    if (!bridge || held.has(midi)) return;
+    held.add(midi);
+    bridge.noteOn(0, midi, 100);
+    paintKey(midi, true);
+  }
+  function noteOff(midi) {
+    if (!bridge || !held.has(midi)) return;
+    held.delete(midi);
+    bridge.noteOff(0, midi, 100);
+    paintKey(midi, false);
+  }
+  function paintKey(midi, on) {
+    const semi = midi - (baseOctave+1)*12;
+    const el = kbEl.querySelector('[data-semi="'+semi+'"]');
+    if (el) el.classList.toggle("down", on);
+  }
+
+  // ---- pointer input on keyboard ----
+  kbEl.addEventListener("pointerdown", e => {
+    const t = e.target.closest("[data-semi]"); if (!t) return;
+    e.preventDefault(); t.setPointerCapture?.(e.pointerId);
+    noteOn(midiFor(t.dataset.semi));
+  });
+  kbEl.addEventListener("pointerup", e => {
+    const t = e.target.closest("[data-semi]"); if (!t) return;
+    noteOff(midiFor(t.dataset.semi));
+  });
+  kbEl.addEventListener("pointerleave", e => {
+    const t = e.target.closest("[data-semi]"); if (!t) return;
+    noteOff(midiFor(t.dataset.semi));
+  });
+
+  // ---- computer keyboard ----
+  const KEYMAP = { a:0, w:1, s:2, e:3, d:4, f:5, t:6, g:7, y:8, h:9, u:10, j:11,
+                   k:12, o:13, l:14, p:15, ";":16 };
+  window.addEventListener("keydown", e => {
+    if (e.repeat || !bridge) return;
+    const k = e.key.toLowerCase();
+    if (k === "z") { baseOctave = Math.max(0, baseOctave-1); return; }
+    if (k === "x") { baseOctave = Math.min(8, baseOctave+1); return; }
+    if (k in KEYMAP && !keyToNote.has(k)) {
+      const midi = (baseOctave+1)*12 + KEYMAP[k];
+      keyToNote.set(k, midi); noteOn(midi);
+    }
+  });
+  window.addEventListener("keyup", e => {
+    const k = e.key.toLowerCase();
+    if (keyToNote.has(k)) { noteOff(keyToNote.get(k)); keyToNote.delete(k); }
+  });
+
+  // ---- controls ----
+  oscSel.addEventListener("change", () => { if (bridge) bridge.setOscType(Number(oscSel.value)); });
+  bendEl.addEventListener("input", () => { if (bridge) bridge.pitchBend(0, Number(bendEl.value)); });
+  bendEl.addEventListener("change", () => { bendEl.value = 0; if (bridge) bridge.pitchBend(0, 0); });
+  gainEl.addEventListener("input", () => { if (gainNode) gainNode.gain.value = Number(gainEl.value)/100; });
+
+  // ---- shared helpers ----
+  function encodePath(p) { return p.split("/").map(encodeURIComponent).join("/"); }
+  function esc(s){ return String(s).replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c])); }
+
+  function stopAudition() {
+    auditionTimers.forEach(t => clearTimeout(t));
+    auditionTimers = [];
+    if (bridge) bridge.allNotesOff();
+    kbEl.querySelectorAll(".down").forEach(el => el.classList.remove("down"));
+  }
+  function audition() {
+    stopAudition();
+    // gentle C-major arpeggio then a held triad
+    const seq = [ [60,0],[64,180],[67,360],[72,540] ];
+    seq.forEach(([n,ms]) => {
+      auditionTimers.push(setTimeout(() => noteOn(n), ms));
+      auditionTimers.push(setTimeout(() => noteOff(n), ms + 900));
+    });
+  }
+
+  // ---- patch browser (one instance per collection) ----
+  function makePatchBrowser(cfg) {
+    const catSel = document.getElementById(cfg.prefix + "_cat");
+    const patchSel = document.getElementById(cfg.prefix + "_patch");
+    const prevBtn = document.getElementById(cfg.prefix + "_prev");
+    const nextBtn = document.getElementById(cfg.prefix + "_next");
+    const audBtn = document.getElementById(cfg.prefix + "_aud");
+    const infoEl = document.getElementById(cfg.prefix + "_info");
+    const countEl = document.getElementById(cfg.prefix + "_count");
+    let manifest = null, curCat = 0, curPatch = 0, listCat = -1;
+
+    async function loadManifest() {
+      try {
+        const r = await fetch(cfg.manifestUrl);
+        if (!r.ok) throw new Error("HTTP " + r.status);
+        manifest = await r.json();
+        if (countEl) countEl.textContent = manifest.count + " patches · " + manifest.categories.length + " " + cfg.groupWord;
+      } catch (e) {
+        console.warn(cfg.manifestUrl + " unavailable:", e);
+        manifest = null;
+        if (countEl) countEl.textContent = "unavailable";
+      }
+    }
+    function fillCategories() {
+      catSel.innerHTML = "";
+      manifest.categories.forEach((c, i) => {
+        const o = document.createElement("option");
+        o.value = i; o.textContent = c.name + " (" + c.patches.length + ")";
+        catSel.appendChild(o);
+      });
+    }
+    function fillPatches() {
+      patchSel.innerHTML = "";
+      manifest.categories[curCat].patches.forEach((p, i) => {
+        const o = document.createElement("option");
+        o.value = i; o.textContent = (p.sub ? p.sub + " / " : "") + p.name;
+        patchSel.appendChild(o);
+      });
+      listCat = curCat;
+    }
+    async function loadAt(catIdx, patchIdx, doAudition) {
+      if (!bridge || !manifest) return;
+      curCat = (catIdx + manifest.categories.length) % manifest.categories.length;
+      const cat = manifest.categories[curCat];
+      curPatch = (patchIdx + cat.patches.length) % cat.patches.length;
+      const p = cat.patches[curPatch];
+      catSel.value = curCat;
+      if (listCat !== curCat) fillPatches();
+      patchSel.value = curPatch;
+
+      infoEl.textContent = "Loading “" + p.name + "”…";
+      try {
+        const resp = await fetch(manifest.root + "/" + encodePath(p.file));
+        if (!resp.ok) throw new Error("HTTP " + resp.status);
+        const bytes = new Uint8Array(await resp.arrayBuffer());
+        stopAudition();
+        bridge.allNotesOff();
+        const ok = bridge.loadPatchBytes(p.name, bytes);
+        if (!ok) { infoEl.textContent = "⚠ “" + p.name + "” is not a valid Surge patch."; return; }
+        const auth = bridge.patchAuthor();
+        infoEl.innerHTML = "▶ <b>" + esc(bridge.patchName()) + "</b> — " + esc(cat.name) +
+          (auth ? " · by " + esc(auth) : "") + " · " + Math.round(bytes.length/1024) + " KB";
+        if (doAudition) audition();
+      } catch (e) {
+        console.error(e);
+        infoEl.textContent = "⚠ Failed to load “" + p.name + "”: " + (e.message || e);
+      }
+    }
+
+    catSel.addEventListener("change", () => loadAt(Number(catSel.value), 0, false));
+    patchSel.addEventListener("change", () => loadAt(curCat, Number(patchSel.value), false));
+    prevBtn.addEventListener("click", () => loadAt(curCat, curPatch - 1, false));
+    nextBtn.addEventListener("click", () => loadAt(curCat, curPatch + 1, false));
+    audBtn.addEventListener("click", () => { if (!patchSel.disabled) loadAt(curCat, curPatch, true); });
+
+    return {
+      loadManifest,
+      hasManifest: () => !!manifest,
+      enable(on) {
+        const usable = on && !!manifest;
+        [catSel, patchSel, prevBtn, nextBtn, audBtn].forEach(x => x.disabled = !usable);
+        if (on && manifest) { curCat = 0; curPatch = 0; listCat = -1; fillCategories(); fillPatches(); }
+      }
+    };
+  }
+
+  const facBrowser = makePatchBrowser({ prefix: "fac", manifestUrl: "patches.json", groupWord: "categories" });
+  const tpBrowser  = makePatchBrowser({ prefix: "tp",  manifestUrl: "patches_3rdparty.json", groupWord: "authors" });
+
+  // ---- start audio / instantiate engine ----
+  powerBtn.addEventListener("click", async () => {
+    if (ctx) { // toggle off
+      stopAudition();
+      await ctx.close(); ctx = null; bridge = null; window.surgeBridge = null;
+      powerBtn.textContent = "▶ Start Audio";
+      setStatus("Audio stopped. Click to start again.");
+      [oscSel,bendEl,gainEl].forEach(x => x.disabled = true);
+      facBrowser.enable(false);
+      tpBrowser.enable(false);
+      return;
+    }
+    try {
+      setStatus("Loading WebAssembly engine…");
+      const Module = await createSurgeModule();
+      ctx = new (window.AudioContext || window.webkitAudioContext)();
+      await ctx.resume();
+      bridge = new Module.SurgeBridge(ctx.sampleRate);
+      blockSize = bridge.blockSize();
+      window.surgeBridge = bridge; // debug handle
+
+      gainNode = ctx.createGain();
+      gainNode.gain.value = Number(gainEl.value)/100;
+      gainNode.connect(ctx.destination);
+
+      const bufFrames = 1024;
+      node = ctx.createScriptProcessor(bufFrames, 0, 2);
+      node.onaudioprocess = (ev) => {
+        const out = ev.outputBuffer;
+        const L = out.getChannelData(0), R = out.getChannelData(1);
+        const n = out.length;
+        const view = bridge.render(n); // interleaved stereo Float32 over WASM heap
+        for (let i = 0; i < n; i++) { L[i] = view[i*2]; R[i] = view[i*2+1]; }
+      };
+      node.connect(gainNode);
+
+      // populate oscillator selector
+      oscSel.innerHTML = "";
+      OSC_NAMES.forEach((nm,i) => {
+        const o = document.createElement("option"); o.value = i; o.textContent = nm; oscSel.appendChild(o);
+      });
+      oscSel.value = 0;
+      [oscSel,bendEl,gainEl].forEach(x => x.disabled = false);
+
+      // patch browsers
+      facBrowser.enable(true);
+      tpBrowser.enable(true);
+
+      engineInfo.textContent = Math.round(ctx.sampleRate) + " Hz · block " + blockSize;
+      powerBtn.textContent = "■ Stop Audio";
+      setStatus("Engine running. Play the keyboard!");
+    } catch (err) {
+      console.error(err);
+      setStatus("Failed to start: " + (err && err.message ? err.message : err), true);
+    }
+  });
+
+  buildKeyboard();
+  facBrowser.loadManifest();
+  tpBrowser.loadManifest();
+})();
+</script>
+</body>
+</html>

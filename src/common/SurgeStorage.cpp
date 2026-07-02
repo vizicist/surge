@@ -218,7 +218,13 @@ SurgeStorage::SurgeStorage(const SurgeStorage::SurgeStorageConfig &config) : oth
     // userDataPath = fs::path{"/good/luck/bozo"};
     // userDataPath = fs::path{"/usr/sbin"};
 #elif LINUX
+#if defined(__EMSCRIPTEN__)
+    // No shared object / dladdr in a WASM browser build; there is no "portable
+    // install beside the binary" concept, so use a placeholder install path.
+    const auto installPath = fs::path{"/"};
+#else
     const auto installPath = sst::plugininfra::paths::sharedLibraryBinaryPath().parent_path();
+#endif
 
     if (!hasSuppliedDataPath)
     {

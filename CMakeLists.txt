@@ -270,7 +270,20 @@ endif()
 
 add_subdirectory(libs/sst/sst-cmake)
 add_subdirectory(resources)
+
+# For the WASM build, put shim headers (e.g. a no-op <execinfo.h>) ahead of the
+# Emscripten sysroot so the Linux-flavored platform sources compile.
+if(SURGE_BUILD_WASM)
+  include_directories(BEFORE ${CMAKE_CURRENT_SOURCE_DIR}/wasm/shims)
+endif()
+
 add_subdirectory(src)
+
+# WebAssembly module (headless engine + embind binding). Inert unless building
+# through emcmake with -DSURGE_BUILD_WASM=TRUE.
+if(SURGE_BUILD_WASM)
+  add_subdirectory(wasm)
+endif()
 
 # CI Pipeline {{{
 include(cmake/stage-extra-content.cmake)

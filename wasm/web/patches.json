@@ -1,0 +1,3286 @@
+{
+  "categories": [
+    {
+      "name": "Basses",
+      "patches": [
+        {
+          "sub": "",
+          "name": "Attacky",
+          "file": "Basses/Attacky.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Bass 1",
+          "file": "Basses/Bass 1.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Bass 2",
+          "file": "Basses/Bass 2.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Bass 3",
+          "file": "Basses/Bass 3.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Bass 4",
+          "file": "Basses/Bass 4.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Bass 5",
+          "file": "Basses/Bass 5.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Behemoth",
+          "file": "Basses/Behemoth.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Crush Bass",
+          "file": "Basses/Crush Bass.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Deep End",
+          "file": "Basses/Deep End.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Digibass",
+          "file": "Basses/Digibass.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Dist Bass 1",
+          "file": "Basses/Dist Bass 1.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Dist Bass 2",
+          "file": "Basses/Dist Bass 2.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Distorted Bass",
+          "file": "Basses/Distorted Bass.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Distorted FM",
+          "file": "Basses/Distorted FM.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Distorted MW",
+          "file": "Basses/Distorted MW.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Doomsday",
+          "file": "Basses/Doomsday.fxp"
+        },
+        {
+          "sub": "",
+          "name": "E-Bass",
+          "file": "Basses/E-Bass.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Eighties Drone",
+          "file": "Basses/Eighties Drone.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Evilous",
+          "file": "Basses/Evilous.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Fingered",
+          "file": "Basses/Fingered.fxp"
+        },
+        {
+          "sub": "",
+          "name": "FM Bass 1",
+          "file": "Basses/FM Bass 1.fxp"
+        },
+        {
+          "sub": "",
+          "name": "FM Bass 2",
+          "file": "Basses/FM Bass 2.fxp"
+        },
+        {
+          "sub": "",
+          "name": "FM Bass 3",
+          "file": "Basses/FM Bass 3.fxp"
+        },
+        {
+          "sub": "",
+          "name": "FM Bass 4",
+          "file": "Basses/FM Bass 4.fxp"
+        },
+        {
+          "sub": "",
+          "name": "FM Bass 5",
+          "file": "Basses/FM Bass 5.fxp"
+        },
+        {
+          "sub": "",
+          "name": "FM Bass 6",
+          "file": "Basses/FM Bass 6.fxp"
+        },
+        {
+          "sub": "",
+          "name": "FM Combo",
+          "file": "Basses/FM Combo.fxp"
+        },
+        {
+          "sub": "",
+          "name": "FM Slap",
+          "file": "Basses/FM Slap.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Helmeto",
+          "file": "Basses/Helmeto.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Lord Sawtooth",
+          "file": "Basses/Lord Sawtooth.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Mellow",
+          "file": "Basses/Mellow.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Metal Square",
+          "file": "Basses/Metal Square.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Mmm... Pointy!",
+          "file": "Basses/Mmm... Pointy!.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Piano Bass",
+          "file": "Basses/Piano Bass.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Plain",
+          "file": "Basses/Plain.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Ring Mayhem",
+          "file": "Basses/Ring Mayhem.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Rubber Bass",
+          "file": "Basses/Rubber Bass.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Rumble",
+          "file": "Basses/Rumble.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Saw Lo-Fi",
+          "file": "Basses/Saw Lo-Fi.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Schnell",
+          "file": "Basses/Schnell.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Slow",
+          "file": "Basses/Slow.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Smoothie",
+          "file": "Basses/Smoothie.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Square Bass",
+          "file": "Basses/Square Bass.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Squared",
+          "file": "Basses/Squared.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Stable",
+          "file": "Basses/Stable.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Static 1",
+          "file": "Basses/Static 1.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Static 2",
+          "file": "Basses/Static 2.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Stone",
+          "file": "Basses/Stone.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Sub 1",
+          "file": "Basses/Sub 1.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Sub 2",
+          "file": "Basses/Sub 2.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Sub 3",
+          "file": "Basses/Sub 3.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Sub 4",
+          "file": "Basses/Sub 4.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Sub Square",
+          "file": "Basses/Sub Square.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Tacky 1",
+          "file": "Basses/Tacky 1.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Tacky 2",
+          "file": "Basses/Tacky 2.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Theme",
+          "file": "Basses/Theme.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Wide Bassline",
+          "file": "Basses/Wide Bassline.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Width",
+          "file": "Basses/Width.fxp"
+        },
+        {
+          "sub": "",
+          "name": "WT Bass",
+          "file": "Basses/WT Bass.fxp"
+        }
+      ]
+    },
+    {
+      "name": "Brass",
+      "patches": [
+        {
+          "sub": "",
+          "name": "Brassy",
+          "file": "Brass/Brassy.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Buggy Brass",
+          "file": "Brass/Buggy Brass.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Crisp Noise Brass",
+          "file": "Brass/Crisp Noise Brass.fxp"
+        },
+        {
+          "sub": "",
+          "name": "JX-10 Double Brass",
+          "file": "Brass/JX-10 Double Brass.fxp"
+        },
+        {
+          "sub": "",
+          "name": "OB-8 Jump",
+          "file": "Brass/OB-8 Jump.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Plastic Brass",
+          "file": "Brass/Plastic Brass.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Reso Brassy",
+          "file": "Brass/Reso Brassy.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Synth Brass 1",
+          "file": "Brass/Synth Brass 1.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Synth Brass 2",
+          "file": "Brass/Synth Brass 2.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Synth Brass 3",
+          "file": "Brass/Synth Brass 3.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Toto Brass",
+          "file": "Brass/Toto Brass.fxp"
+        }
+      ]
+    },
+    {
+      "name": "Chords",
+      "patches": [
+        {
+          "sub": "",
+          "name": "Inharmonic Stab",
+          "file": "Chords/Inharmonic Stab.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Maj-Min Saw",
+          "file": "Chords/Maj-Min Saw.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Maj-Min Stab",
+          "file": "Chords/Maj-Min Stab.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Major 7 MkI",
+          "file": "Chords/Major 7 MkI.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Major 7 MkII",
+          "file": "Chords/Major 7 MkII.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Minor 7",
+          "file": "Chords/Minor 7.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Minor Chord Retro Stab",
+          "file": "Chords/Minor Chord Retro Stab.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Tek Stab",
+          "file": "Chords/Tek Stab.fxp"
+        }
+      ]
+    },
+    {
+      "name": "FX",
+      "patches": [
+        {
+          "sub": "",
+          "name": "Aggero",
+          "file": "FX/Aggero.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Alarm",
+          "file": "FX/Alarm.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Aliens",
+          "file": "FX/Aliens.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Bork",
+          "file": "FX/Bork.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Busy",
+          "file": "FX/Busy.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Chaotry",
+          "file": "FX/Chaotry.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Crackling",
+          "file": "FX/Crackling.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Damage Dealer",
+          "file": "FX/Damage Dealer.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Die-ie-ie",
+          "file": "FX/Die-ie-ie.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Dishonest",
+          "file": "FX/Dishonest.fxp"
+        },
+        {
+          "sub": "",
+          "name": "DTMF",
+          "file": "FX/DTMF.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Evil Sucker Seq",
+          "file": "FX/Evil Sucker Seq.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Fireworks",
+          "file": "FX/Fireworks.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Fry's Holophoner",
+          "file": "FX/Fry's Holophoner.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Geiger",
+          "file": "FX/Geiger.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Harm",
+          "file": "FX/Harm.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Health Care",
+          "file": "FX/Health Care.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Metal Pluck",
+          "file": "FX/Metal Pluck.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Radio Noise",
+          "file": "FX/Radio Noise.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Rather Low",
+          "file": "FX/Rather Low.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Space Adventure 1",
+          "file": "FX/Space Adventure 1.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Space Adventure 2",
+          "file": "FX/Space Adventure 2.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Space Cadet",
+          "file": "FX/Space Cadet.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Spooky Fish",
+          "file": "FX/Spooky Fish.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Unsettler",
+          "file": "FX/Unsettler.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Vinyl",
+          "file": "FX/Vinyl.fxp"
+        },
+        {
+          "sub": "",
+          "name": "XG Stardust",
+          "file": "FX/XG Stardust.fxp"
+        }
+      ]
+    },
+    {
+      "name": "Keys",
+      "patches": [
+        {
+          "sub": "",
+          "name": "Artificial 1",
+          "file": "Keys/Artificial 1.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Artificial 2",
+          "file": "Keys/Artificial 2.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Church",
+          "file": "Keys/Church.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Circus 1",
+          "file": "Keys/Circus 1.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Circus 2",
+          "file": "Keys/Circus 2.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Digi Harpsi",
+          "file": "Keys/Digi Harpsi.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Dirt",
+          "file": "Keys/Dirt.fxp"
+        },
+        {
+          "sub": "",
+          "name": "DX EP",
+          "file": "Keys/DX EP.fxp"
+        },
+        {
+          "sub": "",
+          "name": "EP 1",
+          "file": "Keys/EP 1.fxp"
+        },
+        {
+          "sub": "",
+          "name": "EP 2",
+          "file": "Keys/EP 2.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Experiment",
+          "file": "Keys/Experiment.fxp"
+        },
+        {
+          "sub": "",
+          "name": "House Organ",
+          "file": "Keys/House Organ.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Organ 1",
+          "file": "Keys/Organ 1.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Organ 2",
+          "file": "Keys/Organ 2.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Organ 3",
+          "file": "Keys/Organ 3.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Soft Suitcase",
+          "file": "Keys/Soft Suitcase.fxp"
+        }
+      ]
+    },
+    {
+      "name": "Leads",
+      "patches": [
+        {
+          "sub": "",
+          "name": "Acidofil",
+          "file": "Leads/Acidofil.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Agroculture",
+          "file": "Leads/Agroculture.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Asymptote",
+          "file": "Leads/Asymptote.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Bad Childhood",
+          "file": "Leads/Bad Childhood.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Banjo Remains",
+          "file": "Leads/Banjo Remains.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Banter",
+          "file": "Leads/Banter.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Bee",
+          "file": "Leads/Bee.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Bitten",
+          "file": "Leads/Bitten.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Boll",
+          "file": "Leads/Boll.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Broken One",
+          "file": "Leads/Broken One.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Butter",
+          "file": "Leads/Butter.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Caveman",
+          "file": "Leads/Caveman.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Cell",
+          "file": "Leads/Cell.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Chatter",
+          "file": "Leads/Chatter.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Classic Lead 1",
+          "file": "Leads/Classic Lead 1.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Classic Lead 2",
+          "file": "Leads/Classic Lead 2.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Classical",
+          "file": "Leads/Classical.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Clean Shit",
+          "file": "Leads/Clean Shit.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Condom",
+          "file": "Leads/Condom.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Cottage",
+          "file": "Leads/Cottage.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Cray",
+          "file": "Leads/Cray.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Crisp PWM",
+          "file": "Leads/Crisp PWM.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Digi It",
+          "file": "Leads/Digi It.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Digi Portalead",
+          "file": "Leads/Digi Portalead.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Distortionworks",
+          "file": "Leads/Distortionworks.fxp"
+        },
+        {
+          "sub": "",
+          "name": "DNA Sequencer",
+          "file": "Leads/DNA Sequencer.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Dome",
+          "file": "Leads/Dome.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Duck and Cover",
+          "file": "Leads/Duck and Cover.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Eight",
+          "file": "Leads/Eight.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Etwas",
+          "file": "Leads/Etwas.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Fairy",
+          "file": "Leads/Fairy.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Flawed Science",
+          "file": "Leads/Flawed Science.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Fluff",
+          "file": "Leads/Fluff.fxp"
+        },
+        {
+          "sub": "",
+          "name": "FM Is Growing On Me",
+          "file": "Leads/FM Is Growing On Me.fxp"
+        },
+        {
+          "sub": "",
+          "name": "FM Rock",
+          "file": "Leads/FM Rock.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Formant Pulse",
+          "file": "Leads/Formant Pulse.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Fuji",
+          "file": "Leads/Fuji.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Fundament",
+          "file": "Leads/Fundament.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Fyllo Dual",
+          "file": "Leads/Fyllo Dual.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Gallium Arsenic",
+          "file": "Leads/Gallium Arsenic.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Generic",
+          "file": "Leads/Generic.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Gliss Lead",
+          "file": "Leads/Gliss Lead.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Harsh",
+          "file": "Leads/Harsh.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Harsher",
+          "file": "Leads/Harsher.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Hippo",
+          "file": "Leads/Hippo.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Hof",
+          "file": "Leads/Hof.fxp"
+        },
+        {
+          "sub": "",
+          "name": "In The Distance",
+          "file": "Leads/In The Distance.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Kilkenny",
+          "file": "Leads/Kilkenny.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Koala 1",
+          "file": "Leads/Koala 1.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Koala 2",
+          "file": "Leads/Koala 2.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Kurasu",
+          "file": "Leads/Kurasu.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Labcoat",
+          "file": "Leads/Labcoat.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Later",
+          "file": "Leads/Later.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Legoland",
+          "file": "Leads/Legoland.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Lera",
+          "file": "Leads/Lera.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Light",
+          "file": "Leads/Light.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Log Log",
+          "file": "Leads/Log Log.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Long Stocking",
+          "file": "Leads/Long Stocking.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Markov",
+          "file": "Leads/Markov.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Moogy Saw",
+          "file": "Leads/Moogy Saw.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Mosquito",
+          "file": "Leads/Mosquito.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Motion",
+          "file": "Leads/Motion.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Mundane",
+          "file": "Leads/Mundane.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Nastyfication",
+          "file": "Leads/Nastyfication.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Not Nearly As Harsh",
+          "file": "Leads/Not Nearly As Harsh.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Octave Dodger",
+          "file": "Leads/Octave Dodger.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Oldest Trick In The Book MW",
+          "file": "Leads/Oldest Trick In The Book MW.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Organ Donor",
+          "file": "Leads/Organ Donor.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Owl",
+          "file": "Leads/Owl.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Panda",
+          "file": "Leads/Panda.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Pet",
+          "file": "Leads/Pet.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Phase Pass",
+          "file": "Leads/Phase Pass.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Photon",
+          "file": "Leads/Photon.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Play Nice",
+          "file": "Leads/Play Nice.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Probability",
+          "file": "Leads/Probability.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Qealchee",
+          "file": "Leads/Qealchee.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Quick Basic",
+          "file": "Leads/Quick Basic.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Quirp",
+          "file": "Leads/Quirp.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Quiz",
+          "file": "Leads/Quiz.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Radon",
+          "file": "Leads/Radon.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Resofest 1",
+          "file": "Leads/Resofest 1.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Resofest 2",
+          "file": "Leads/Resofest 2.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Resofest 3",
+          "file": "Leads/Resofest 3.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Resofest 4",
+          "file": "Leads/Resofest 4.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Riemann",
+          "file": "Leads/Riemann.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Rough",
+          "file": "Leads/Rough.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Rundfunk Funk",
+          "file": "Leads/Rundfunk Funk.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Saw Octaves",
+          "file": "Leads/Saw Octaves.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Scooped",
+          "file": "Leads/Scooped.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Scream Lead",
+          "file": "Leads/Scream Lead.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Screamer",
+          "file": "Leads/Screamer.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Screamy Verby",
+          "file": "Leads/Screamy Verby.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Semi-clip",
+          "file": "Leads/Semi-clip.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Serial",
+          "file": "Leads/Serial.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Shanai",
+          "file": "Leads/Shanai.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Sharpish",
+          "file": "Leads/Sharpish.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Sheep Clothing MW",
+          "file": "Leads/Sheep Clothing MW.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Simple ATC",
+          "file": "Leads/Simple ATC.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Simpler Times",
+          "file": "Leads/Simpler Times.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Sine Lead",
+          "file": "Leads/Sine Lead.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Sine-Saw Acidish",
+          "file": "Leads/Sine-Saw Acidish.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Smoothness World Cup",
+          "file": "Leads/Smoothness World Cup.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Smoothy Hollow",
+          "file": "Leads/Smoothy Hollow.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Somewhere MW",
+          "file": "Leads/Somewhere MW.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Square",
+          "file": "Leads/Square.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Squelch",
+          "file": "Leads/Squelch.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Squiggly",
+          "file": "Leads/Squiggly.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Stepmother",
+          "file": "Leads/Stepmother.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Sweepy",
+          "file": "Leads/Sweepy.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Sync Harmonics",
+          "file": "Leads/Sync Harmonics.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Sync Lead",
+          "file": "Leads/Sync Lead.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Synth Guitar 1",
+          "file": "Leads/Synth Guitar 1.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Synth Guitar 2",
+          "file": "Leads/Synth Guitar 2.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Talky 1 MW",
+          "file": "Leads/Talky 1 MW.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Talky 2 MW",
+          "file": "Leads/Talky 2 MW.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Tank Top",
+          "file": "Leads/Tank Top.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Tight Bassline",
+          "file": "Leads/Tight Bassline.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Tok",
+          "file": "Leads/Tok.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Tolk",
+          "file": "Leads/Tolk.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Triple",
+          "file": "Leads/Triple.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Turbo",
+          "file": "Leads/Turbo.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Turbo Solo",
+          "file": "Leads/Turbo Solo.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Untamed",
+          "file": "Leads/Untamed.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Up Down",
+          "file": "Leads/Up Down.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Very Chorus",
+          "file": "Leads/Very Chorus.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Violini Solo",
+          "file": "Leads/Violini Solo.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Vocal Lead",
+          "file": "Leads/Vocal Lead.fxp"
+        },
+        {
+          "sub": "",
+          "name": "WG 01",
+          "file": "Leads/WG 01.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Wombat",
+          "file": "Leads/Wombat.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Zero Zero One",
+          "file": "Leads/Zero Zero One.fxp"
+        },
+        {
+          "sub": "",
+          "name": "µcomputer",
+          "file": "Leads/µcomputer.fxp"
+        }
+      ]
+    },
+    {
+      "name": "MPE",
+      "patches": [
+        {
+          "sub": "",
+          "name": "Baritonosaurus Saxus",
+          "file": "MPE/Baritonosaurus Saxus.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Bloom",
+          "file": "MPE/Bloom.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Coteaux du Giennois",
+          "file": "MPE/Coteaux du Giennois.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Lead With A Bell Attack",
+          "file": "MPE/Lead With A Bell Attack.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Moving Day In The Caves",
+          "file": "MPE/Moving Day In The Caves.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Pad Plink 'n' Move",
+          "file": "MPE/Pad Plink 'n' Move.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Sticky",
+          "file": "MPE/Sticky.fxp"
+        },
+        {
+          "sub": "",
+          "name": "The Elephant Told You",
+          "file": "MPE/The Elephant Told You.fxp"
+        },
+        {
+          "sub": "",
+          "name": "The Shoebox",
+          "file": "MPE/The Shoebox.fxp"
+        }
+      ]
+    },
+    {
+      "name": "Pads",
+      "patches": [
+        {
+          "sub": "",
+          "name": "Alias Pornography",
+          "file": "Pads/Alias Pornography.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Assymetry",
+          "file": "Pads/Assymetry.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Bell Pad",
+          "file": "Pads/Bell Pad.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Bells and Sweep",
+          "file": "Pads/Bells and Sweep.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Bright",
+          "file": "Pads/Bright.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Burden",
+          "file": "Pads/Burden.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Canadians",
+          "file": "Pads/Canadians.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Choir Pad Thing",
+          "file": "Pads/Choir Pad Thing.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Chowning",
+          "file": "Pads/Chowning.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Communication",
+          "file": "Pads/Communication.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Computers In Space",
+          "file": "Pads/Computers In Space.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Death To Gator",
+          "file": "Pads/Death To Gator.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Distant",
+          "file": "Pads/Distant.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Distorted Choir 1",
+          "file": "Pads/Distorted Choir 1.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Distorted Choir 2",
+          "file": "Pads/Distorted Choir 2.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Endgame",
+          "file": "Pads/Endgame.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Flux Capacitor",
+          "file": "Pads/Flux Capacitor.fxp"
+        },
+        {
+          "sub": "",
+          "name": "FM Pad",
+          "file": "Pads/FM Pad.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Formants MW",
+          "file": "Pads/Formants MW.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Ghost Pad",
+          "file": "Pads/Ghost Pad.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Gliss Movement",
+          "file": "Pads/Gliss Movement.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Growth",
+          "file": "Pads/Growth.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Harmonic Sweep",
+          "file": "Pads/Harmonic Sweep.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Harsh Saw",
+          "file": "Pads/Harsh Saw.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Hmm...",
+          "file": "Pads/Hmm....fxp"
+        },
+        {
+          "sub": "",
+          "name": "Legacy",
+          "file": "Pads/Legacy.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Louder",
+          "file": "Pads/Louder.fxp"
+        },
+        {
+          "sub": "",
+          "name": "MKS-70 Warm Pad",
+          "file": "Pads/MKS-70 Warm Pad.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Moody Statement",
+          "file": "Pads/Moody Statement.fxp"
+        },
+        {
+          "sub": "",
+          "name": "MW Pulsating",
+          "file": "Pads/MW Pulsating.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Newton Was Evil",
+          "file": "Pads/Newton Was Evil.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Ooh",
+          "file": "Pads/Ooh.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Pad 1",
+          "file": "Pads/Pad 1.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Pad 2 MW",
+          "file": "Pads/Pad 2 MW.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Pad 3",
+          "file": "Pads/Pad 3.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Pad 4",
+          "file": "Pads/Pad 4.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Pad 5",
+          "file": "Pads/Pad 5.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Pad 6",
+          "file": "Pads/Pad 6.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Pad 7",
+          "file": "Pads/Pad 7.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Pad 8",
+          "file": "Pads/Pad 8.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Primes",
+          "file": "Pads/Primes.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Retro Choir",
+          "file": "Pads/Retro Choir.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Ringing",
+          "file": "Pads/Ringing.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Robochoir 1",
+          "file": "Pads/Robochoir 1.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Robochoir 2",
+          "file": "Pads/Robochoir 2.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Safety",
+          "file": "Pads/Safety.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Sawteeth",
+          "file": "Pads/Sawteeth.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Semiconductor",
+          "file": "Pads/Semiconductor.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Semihaunt",
+          "file": "Pads/Semihaunt.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Smooth Dist",
+          "file": "Pads/Smooth Dist.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Sparkly",
+          "file": "Pads/Sparkly.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Sprinkly",
+          "file": "Pads/Sprinkly.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Still",
+          "file": "Pads/Still.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Stretch",
+          "file": "Pads/Stretch.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Subtle Comb Strings",
+          "file": "Pads/Subtle Comb Strings.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Sunday",
+          "file": "Pads/Sunday.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Super",
+          "file": "Pads/Super.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Synth Choir MW O-Ah",
+          "file": "Pads/Synth Choir MW O-Ah.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Verb Pad",
+          "file": "Pads/Verb Pad.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Well",
+          "file": "Pads/Well.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Winter Warmer",
+          "file": "Pads/Winter Warmer.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Worried",
+          "file": "Pads/Worried.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Xbox 1",
+          "file": "Pads/Xbox 1.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Xbox 2",
+          "file": "Pads/Xbox 2.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Yeti Funeral",
+          "file": "Pads/Yeti Funeral.fxp"
+        }
+      ]
+    },
+    {
+      "name": "Percussion",
+      "patches": [
+        {
+          "sub": "",
+          "name": "Drum One",
+          "file": "Percussion/Drum One.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Kick 909ish",
+          "file": "Percussion/Kick 909ish.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Kick Tech 1",
+          "file": "Percussion/Kick Tech 1.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Kick Tech 2",
+          "file": "Percussion/Kick Tech 2.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Snare Tight",
+          "file": "Percussion/Snare Tight.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Synth Tom 1",
+          "file": "Percussion/Synth Tom 1.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Synth Tom 2",
+          "file": "Percussion/Synth Tom 2.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Synth Tom 3",
+          "file": "Percussion/Synth Tom 3.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Verber",
+          "file": "Percussion/Verber.fxp"
+        }
+      ]
+    },
+    {
+      "name": "Plucks",
+      "patches": [
+        {
+          "sub": "",
+          "name": "80s Gliss",
+          "file": "Plucks/80s Gliss.fxp"
+        },
+        {
+          "sub": "",
+          "name": "ACME",
+          "file": "Plucks/ACME.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Agropop",
+          "file": "Plucks/Agropop.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Ambient E-Guitar",
+          "file": "Plucks/Ambient E-Guitar.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Artificial",
+          "file": "Plucks/Artificial.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Asymmetry",
+          "file": "Plucks/Asymmetry.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Battered Beauty",
+          "file": "Plucks/Battered Beauty.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Bell 1",
+          "file": "Plucks/Bell 1.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Bell 2",
+          "file": "Plucks/Bell 2.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Belle",
+          "file": "Plucks/Belle.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Bite",
+          "file": "Plucks/Bite.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Blekinge",
+          "file": "Plucks/Blekinge.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Brut de Bollebygd",
+          "file": "Plucks/Brut de Bollebygd.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Clean",
+          "file": "Plucks/Clean.fxp"
+        },
+        {
+          "sub": "",
+          "name": "CLRKSWRD",
+          "file": "Plucks/CLRKSWRD.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Comb Pluck",
+          "file": "Plucks/Comb Pluck.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Convex",
+          "file": "Plucks/Convex.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Cuto",
+          "file": "Plucks/Cuto.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Delay Dancer",
+          "file": "Plucks/Delay Dancer.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Delay Pops 1",
+          "file": "Plucks/Delay Pops 1.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Delay Pops 2",
+          "file": "Plucks/Delay Pops 2.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Delay Pops 3",
+          "file": "Plucks/Delay Pops 3.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Delay Pops 4",
+          "file": "Plucks/Delay Pops 4.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Delay Pops 5",
+          "file": "Plucks/Delay Pops 5.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Diamonds",
+          "file": "Plucks/Diamonds.fxp"
+        },
+        {
+          "sub": "",
+          "name": "E-Guitar",
+          "file": "Plucks/E-Guitar.fxp"
+        },
+        {
+          "sub": "",
+          "name": "East",
+          "file": "Plucks/East.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Enhanced Forest",
+          "file": "Plucks/Enhanced Forest.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Falling Down",
+          "file": "Plucks/Falling Down.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Fantasy Bell",
+          "file": "Plucks/Fantasy Bell.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Fluortant",
+          "file": "Plucks/Fluortant.fxp"
+        },
+        {
+          "sub": "",
+          "name": "FM Pluck",
+          "file": "Plucks/FM Pluck.fxp"
+        },
+        {
+          "sub": "",
+          "name": "FM Poops",
+          "file": "Plucks/FM Poops.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Fog",
+          "file": "Plucks/Fog.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Forever",
+          "file": "Plucks/Forever.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Freedom Fries",
+          "file": "Plucks/Freedom Fries.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Friendly",
+          "file": "Plucks/Friendly.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Frog",
+          "file": "Plucks/Frog.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Gliss Pluck",
+          "file": "Plucks/Gliss Pluck.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Gliss Pluck Distorted",
+          "file": "Plucks/Gliss Pluck Distorted.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Good Childhood",
+          "file": "Plucks/Good Childhood.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Guitar",
+          "file": "Plucks/Guitar.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Half FM",
+          "file": "Plucks/Half FM.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Happy",
+          "file": "Plucks/Happy.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Harmonics 1",
+          "file": "Plucks/Harmonics 1.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Harmonics 2",
+          "file": "Plucks/Harmonics 2.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Hasselhoff",
+          "file": "Plucks/Hasselhoff.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Hybrid 1",
+          "file": "Plucks/Hybrid 1.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Hybrid 2",
+          "file": "Plucks/Hybrid 2.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Icebreaker",
+          "file": "Plucks/Icebreaker.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Late Fall",
+          "file": "Plucks/Late Fall.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Light 1",
+          "file": "Plucks/Light 1.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Light 2",
+          "file": "Plucks/Light 2.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Lighter",
+          "file": "Plucks/Lighter.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Lil' Exploders",
+          "file": "Plucks/Lil' Exploders.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Lo-Fi Pluck",
+          "file": "Plucks/Lo-Fi Pluck.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Magic Music Box",
+          "file": "Plucks/Magic Music Box.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Magical Guitar",
+          "file": "Plucks/Magical Guitar.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Man Machine",
+          "file": "Plucks/Man Machine.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Messy",
+          "file": "Plucks/Messy.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Metallic",
+          "file": "Plucks/Metallic.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Mol",
+          "file": "Plucks/Mol.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Mollusk",
+          "file": "Plucks/Mollusk.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Mr. Sparkle",
+          "file": "Plucks/Mr. Sparkle.fxp"
+        },
+        {
+          "sub": "",
+          "name": "MW Morph",
+          "file": "Plucks/MW Morph.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Mystic",
+          "file": "Plucks/Mystic.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Nice Pluck 1",
+          "file": "Plucks/Nice Pluck 1.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Nice Pluck 2",
+          "file": "Plucks/Nice Pluck 2.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Nice Pluck 3",
+          "file": "Plucks/Nice Pluck 3.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Nice Pluck 4",
+          "file": "Plucks/Nice Pluck 4.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Nice Pluck 5",
+          "file": "Plucks/Nice Pluck 5.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Nolla",
+          "file": "Plucks/Nolla.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Norrland",
+          "file": "Plucks/Norrland.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Piano Remains 1",
+          "file": "Plucks/Piano Remains 1.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Piano Remains 2",
+          "file": "Plucks/Piano Remains 2.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Pie",
+          "file": "Plucks/Pie.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Pinkerton Tinfurter",
+          "file": "Plucks/Pinkerton Tinfurter.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Pol Pot",
+          "file": "Plucks/Pol Pot.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Pulsar",
+          "file": "Plucks/Pulsar.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Pulsii",
+          "file": "Plucks/Pulsii.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Pure Square",
+          "file": "Plucks/Pure Square.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Retrofit",
+          "file": "Plucks/Retrofit.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Reverend B",
+          "file": "Plucks/Reverend B.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Rutherford Menskin MW",
+          "file": "Plucks/Rutherford Menskin MW.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Saw Pluck",
+          "file": "Plucks/Saw Pluck.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Scrape Pluck",
+          "file": "Plucks/Scrape Pluck.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Sharpness",
+          "file": "Plucks/Sharpness.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Simple PW",
+          "file": "Plucks/Simple PW.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Simple Waveguide",
+          "file": "Plucks/Simple Waveguide.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Sinus Verby Pops",
+          "file": "Plucks/Sinus Verby Pops.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Snap",
+          "file": "Plucks/Snap.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Soft Space Oboe Pops",
+          "file": "Plucks/Soft Space Oboe Pops.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Soft Sync Saw",
+          "file": "Plucks/Soft Sync Saw.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Soift",
+          "file": "Plucks/Soift.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Spell",
+          "file": "Plucks/Spell.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Square Blinks",
+          "file": "Plucks/Square Blinks.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Square Pop",
+          "file": "Plucks/Square Pop.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Sync Echo",
+          "file": "Plucks/Sync Echo.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Sync Pluck",
+          "file": "Plucks/Sync Pluck.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Sync Square Pluck",
+          "file": "Plucks/Sync Square Pluck.fxp"
+        },
+        {
+          "sub": "",
+          "name": "That Comb Magic",
+          "file": "Plucks/That Comb Magic.fxp"
+        },
+        {
+          "sub": "",
+          "name": "The 1980s",
+          "file": "Plucks/The 1980s.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Thingamajob",
+          "file": "Plucks/Thingamajob.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Tinker",
+          "file": "Plucks/Tinker.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Trancy",
+          "file": "Plucks/Trancy.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Ultra Violet",
+          "file": "Plucks/Ultra Violet.fxp"
+        },
+        {
+          "sub": "",
+          "name": "VHS Soundtrack",
+          "file": "Plucks/VHS Soundtrack.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Wire",
+          "file": "Plucks/Wire.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Wire MW",
+          "file": "Plucks/Wire MW.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Woody",
+          "file": "Plucks/Woody.fxp"
+        },
+        {
+          "sub": "",
+          "name": "You Fairy",
+          "file": "Plucks/You Fairy.fxp"
+        }
+      ]
+    },
+    {
+      "name": "Polysynths",
+      "patches": [
+        {
+          "sub": "",
+          "name": "1804",
+          "file": "Polysynths/1804.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Ahh Polly",
+          "file": "Polysynths/Ahh Polly.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Analyse",
+          "file": "Polysynths/Analyse.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Anthemish 1",
+          "file": "Polysynths/Anthemish 1.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Anthemish 2",
+          "file": "Polysynths/Anthemish 2.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Anthemish 3",
+          "file": "Polysynths/Anthemish 3.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Bolibompa",
+          "file": "Polysynths/Bolibompa.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Boss",
+          "file": "Polysynths/Boss.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Call",
+          "file": "Polysynths/Call.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Concave",
+          "file": "Polysynths/Concave.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Dirty Hole",
+          "file": "Polysynths/Dirty Hole.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Disturbing Resonance",
+          "file": "Polysynths/Disturbing Resonance.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Embarrass",
+          "file": "Polysynths/Embarrass.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Eyan",
+          "file": "Polysynths/Eyan.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Failure",
+          "file": "Polysynths/Failure.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Fast Poly",
+          "file": "Polysynths/Fast Poly.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Fat Curtis",
+          "file": "Polysynths/Fat Curtis.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Filter Mod",
+          "file": "Polysynths/Filter Mod.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Filter Sweep",
+          "file": "Polysynths/Filter Sweep.fxp"
+        },
+        {
+          "sub": "",
+          "name": "FM Poly",
+          "file": "Polysynths/FM Poly.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Fonk",
+          "file": "Polysynths/Fonk.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Formant Sweep",
+          "file": "Polysynths/Formant Sweep.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Fun With Feedback",
+          "file": "Polysynths/Fun With Feedback.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Gentle",
+          "file": "Polysynths/Gentle.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Havoc",
+          "file": "Polysynths/Havoc.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Hombre",
+          "file": "Polysynths/Hombre.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Hugeness",
+          "file": "Polysynths/Hugeness.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Instant Coffee PWM",
+          "file": "Polysynths/Instant Coffee PWM.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Japanese Space-ulation Wheel",
+          "file": "Polysynths/Japanese Space-ulation Wheel.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Japanese Unison",
+          "file": "Polysynths/Japanese Unison.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Jim",
+          "file": "Polysynths/Jim.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Juno-60 Strings",
+          "file": "Polysynths/Juno-60 Strings.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Jupiter-8",
+          "file": "Polysynths/Jupiter-8.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Keep 'em Coming",
+          "file": "Polysynths/Keep 'em Coming.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Korg Triton",
+          "file": "Polysynths/Korg Triton.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Larger",
+          "file": "Polysynths/Larger.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Licht",
+          "file": "Polysynths/Licht.fxp"
+        },
+        {
+          "sub": "",
+          "name": "MacLaurin",
+          "file": "Polysynths/MacLaurin.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Mega Mega",
+          "file": "Polysynths/Mega Mega.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Megasynth 1",
+          "file": "Polysynths/Megasynth 1.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Megasynth 2",
+          "file": "Polysynths/Megasynth 2.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Megasynth 3",
+          "file": "Polysynths/Megasynth 3.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Megasynth 4",
+          "file": "Polysynths/Megasynth 4.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Melon",
+          "file": "Polysynths/Melon.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Messy",
+          "file": "Polysynths/Messy.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Metal Chonk",
+          "file": "Polysynths/Metal Chonk.fxp"
+        },
+        {
+          "sub": "",
+          "name": "MG",
+          "file": "Polysynths/MG.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Noise Tone",
+          "file": "Polysynths/Noise Tone.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Notched Saws",
+          "file": "Polysynths/Notched Saws.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Oberheim Dreams",
+          "file": "Polysynths/Oberheim Dreams.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Oiro",
+          "file": "Polysynths/Oiro.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Ol' Sampler",
+          "file": "Polysynths/Ol' Sampler.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Old Square",
+          "file": "Polysynths/Old Square.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Oldie",
+          "file": "Polysynths/Oldie.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Past Tense",
+          "file": "Polysynths/Past Tense.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Phasey",
+          "file": "Polysynths/Phasey.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Play Louder",
+          "file": "Polysynths/Play Louder.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Ploppy",
+          "file": "Polysynths/Ploppy.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Poly Ahhs",
+          "file": "Polysynths/Poly Ahhs.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Poly Lala",
+          "file": "Polysynths/Poly Lala.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Polymoog",
+          "file": "Polysynths/Polymoog.fxp"
+        },
+        {
+          "sub": "",
+          "name": "PPG Choir",
+          "file": "Polysynths/PPG Choir.fxp"
+        },
+        {
+          "sub": "",
+          "name": "PPG Dreams",
+          "file": "Polysynths/PPG Dreams.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Prophet VS",
+          "file": "Polysynths/Prophet VS.fxp"
+        },
+        {
+          "sub": "",
+          "name": "PWM Avenger",
+          "file": "Polysynths/PWM Avenger.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Quantization Choice",
+          "file": "Polysynths/Quantization Choice.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Quasi",
+          "file": "Polysynths/Quasi.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Quote",
+          "file": "Polysynths/Quote.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Ralph",
+          "file": "Polysynths/Ralph.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Reset",
+          "file": "Polysynths/Reset.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Retrofit",
+          "file": "Polysynths/Retrofit.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Retrograde",
+          "file": "Polysynths/Retrograde.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Rez",
+          "file": "Polysynths/Rez.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Ring Sweep",
+          "file": "Polysynths/Ring Sweep.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Ringo",
+          "file": "Polysynths/Ringo.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Ruler",
+          "file": "Polysynths/Ruler.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Rusty",
+          "file": "Polysynths/Rusty.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Separate Ways",
+          "file": "Polysynths/Separate Ways.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Serious Distortion",
+          "file": "Polysynths/Serious Distortion.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Shenanigans",
+          "file": "Polysynths/Shenanigans.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Simplistic",
+          "file": "Polysynths/Simplistic.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Sine Saw",
+          "file": "Polysynths/Sine Saw.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Sine Saw 7",
+          "file": "Polysynths/Sine Saw 7.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Sizzling Sweep",
+          "file": "Polysynths/Sizzling Sweep.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Skatteverket",
+          "file": "Polysynths/Skatteverket.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Slow Poly MW",
+          "file": "Polysynths/Slow Poly MW.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Smooth Stabs",
+          "file": "Polysynths/Smooth Stabs.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Space FM",
+          "file": "Polysynths/Space FM.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Spacematron",
+          "file": "Polysynths/Spacematron.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Spik",
+          "file": "Polysynths/Spik.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Step Portamento",
+          "file": "Polysynths/Step Portamento.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Super Jupiter",
+          "file": "Polysynths/Super Jupiter.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Taikonaut",
+          "file": "Polysynths/Taikonaut.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Tarnce",
+          "file": "Polysynths/Tarnce.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Thynchronization",
+          "file": "Polysynths/Thynchronization.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Uni 1",
+          "file": "Polysynths/Uni 1.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Uni 2",
+          "file": "Polysynths/Uni 2.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Uni Saw FB",
+          "file": "Polysynths/Uni Saw FB.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Vel 2 Cutoff",
+          "file": "Polysynths/Vel 2 Cutoff.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Violini Poly",
+          "file": "Polysynths/Violini Poly.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Waver",
+          "file": "Polysynths/Waver.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Xpander 1",
+          "file": "Polysynths/Xpander 1.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Xpander 2",
+          "file": "Polysynths/Xpander 2.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Zizzly Saw",
+          "file": "Polysynths/Zizzly Saw.fxp"
+        }
+      ]
+    },
+    {
+      "name": "Sequences",
+      "patches": [
+        {
+          "sub": "",
+          "name": "Acid Seq 1",
+          "file": "Sequences/Acid Seq 1.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Acid Seq 2",
+          "file": "Sequences/Acid Seq 2.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Acid Seq 3",
+          "file": "Sequences/Acid Seq 3.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Barrelish",
+          "file": "Sequences/Barrelish.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Bell Seq",
+          "file": "Sequences/Bell Seq.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Bit Seq",
+          "file": "Sequences/Bit Seq.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Burial Ground",
+          "file": "Sequences/Burial Ground.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Calm",
+          "file": "Sequences/Calm.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Comb Seq",
+          "file": "Sequences/Comb Seq.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Damn Aliens",
+          "file": "Sequences/Damn Aliens.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Distorted Glassy Seq",
+          "file": "Sequences/Distorted Glassy Seq.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Evilish",
+          "file": "Sequences/Evilish.fxp"
+        },
+        {
+          "sub": "",
+          "name": "FB Seq",
+          "file": "Sequences/FB Seq.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Fifth Seq",
+          "file": "Sequences/Fifth Seq.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Filter Buildup",
+          "file": "Sequences/Filter Buildup.fxp"
+        },
+        {
+          "sub": "",
+          "name": "FM Motion Sweep",
+          "file": "Sequences/FM Motion Sweep.fxp"
+        },
+        {
+          "sub": "",
+          "name": "FM Seq",
+          "file": "Sequences/FM Seq.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Fold Sseq",
+          "file": "Sequences/Fold Sseq.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Game On 1",
+          "file": "Sequences/Game On 1.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Game On 2",
+          "file": "Sequences/Game On 2.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Game On 3",
+          "file": "Sequences/Game On 3.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Gate Chord",
+          "file": "Sequences/Gate Chord.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Hovercar Championship",
+          "file": "Sequences/Hovercar Championship.fxp"
+        },
+        {
+          "sub": "",
+          "name": "I Want To Get Well",
+          "file": "Sequences/I Want To Get Well.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Madness",
+          "file": "Sequences/Madness.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Multi Seq",
+          "file": "Sequences/Multi Seq.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Noise Bass",
+          "file": "Sequences/Noise Bass.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Noise Seq",
+          "file": "Sequences/Noise Seq.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Octave Arp",
+          "file": "Sequences/Octave Arp.fxp"
+        },
+        {
+          "sub": "",
+          "name": "One Key Wonder",
+          "file": "Sequences/One Key Wonder.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Phase 1",
+          "file": "Sequences/Phase 1.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Phase 2",
+          "file": "Sequences/Phase 2.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Retrig Me",
+          "file": "Sequences/Retrig Me.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Ripping Sequence",
+          "file": "Sequences/Ripping Sequence.fxp"
+        },
+        {
+          "sub": "",
+          "name": "S&H Classic",
+          "file": "Sequences/S&H Classic.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Seq 1234",
+          "file": "Sequences/Seq 1234.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Sine Sequencer 1",
+          "file": "Sequences/Sine Sequencer 1.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Step Phaser",
+          "file": "Sequences/Step Phaser.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Sync Accident",
+          "file": "Sequences/Sync Accident.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Sync Arp",
+          "file": "Sequences/Sync Arp.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Table Seq",
+          "file": "Sequences/Table Seq.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Tyskland",
+          "file": "Sequences/Tyskland.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Wabbit MW",
+          "file": "Sequences/Wabbit MW.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Wavesequence 01",
+          "file": "Sequences/Wavesequence 01.fxp"
+        },
+        {
+          "sub": "",
+          "name": "When Good Combs Go Bad",
+          "file": "Sequences/When Good Combs Go Bad.fxp"
+        }
+      ]
+    },
+    {
+      "name": "Splits",
+      "patches": [
+        {
+          "sub": "",
+          "name": "Bass+Drums",
+          "file": "Splits/Bass+Drums.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Future Split",
+          "file": "Splits/Future Split.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Game On 4 MW Split",
+          "file": "Splits/Game On 4 MW Split.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Sine Sequencer 2",
+          "file": "Splits/Sine Sequencer 2.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Split Personality",
+          "file": "Splits/Split Personality.fxp"
+        }
+      ]
+    },
+    {
+      "name": "Templates",
+      "patches": [
+        {
+          "sub": "",
+          "name": "Audio In Left Osc 1 + Right Osc 2",
+          "file": "Templates/Audio In Left Osc 1 + Right Osc 2.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Audio In Left Scene A + Right Scene B",
+          "file": "Templates/Audio In Left Scene A + Right Scene B.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Audio In Mono Osc 1",
+          "file": "Templates/Audio In Mono Osc 1.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Audio In Stereo Osc 1",
+          "file": "Templates/Audio In Stereo Osc 1.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Init Duophonic",
+          "file": "Templates/Init Duophonic.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Init Env Per Osc",
+          "file": "Templates/Init Env Per Osc.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Init Experimental",
+          "file": "Templates/Init Experimental.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Init FM2",
+          "file": "Templates/Init FM2.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Init Karplus-Strong",
+          "file": "Templates/Init Karplus-Strong.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Init Modern",
+          "file": "Templates/Init Modern.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Init Paraphonic",
+          "file": "Templates/Init Paraphonic.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Init Saw",
+          "file": "Templates/Init Saw.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Init Sine",
+          "file": "Templates/Init Sine.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Init Square",
+          "file": "Templates/Init Square.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Init Wavetable",
+          "file": "Templates/Init Wavetable.fxp"
+        }
+      ]
+    },
+    {
+      "name": "Tutorials",
+      "patches": [
+        {
+          "sub": "Formula Modulator",
+          "name": "01 A Simple Formula",
+          "file": "Tutorials/Formula Modulator/01 A Simple Formula.fxp"
+        },
+        {
+          "sub": "Formula Modulator",
+          "name": "02 Interacting With LFO Parameters",
+          "file": "Tutorials/Formula Modulator/02 Interacting With LFO Parameters.fxp"
+        },
+        {
+          "sub": "Formula Modulator",
+          "name": "03 The Init Function And State",
+          "file": "Tutorials/Formula Modulator/03 The Init Function And State.fxp"
+        },
+        {
+          "sub": "Formula Modulator",
+          "name": "04 Vector Valued Formulae",
+          "file": "Tutorials/Formula Modulator/04 Vector Valued Formulae.fxp"
+        },
+        {
+          "sub": "Formula Modulator",
+          "name": "05 The Envelope And Its Parameters",
+          "file": "Tutorials/Formula Modulator/05 The Envelope And Its Parameters.fxp"
+        },
+        {
+          "sub": "Formula Modulator",
+          "name": "06 Macros And Voice Parameters",
+          "file": "Tutorials/Formula Modulator/06 Macros And Voice Parameters.fxp"
+        },
+        {
+          "sub": "Formula Modulator",
+          "name": "07 The Prelude",
+          "file": "Tutorials/Formula Modulator/07 The Prelude.fxp"
+        },
+        {
+          "sub": "Formula Modulator",
+          "name": "08 Quis Modulatiet Ipsos Modulates",
+          "file": "Tutorials/Formula Modulator/08 Quis Modulatiet Ipsos Modulates.fxp"
+        },
+        {
+          "sub": "Formula Modulator",
+          "name": "09 Example - Crossfading Oscillators",
+          "file": "Tutorials/Formula Modulator/09 Example - Crossfading Oscillators.fxp"
+        },
+        {
+          "sub": "Formula Modulator",
+          "name": "10 Example - Both Time And Space",
+          "file": "Tutorials/Formula Modulator/10 Example - Both Time And Space.fxp"
+        },
+        {
+          "sub": "Formula Modulator",
+          "name": "11 Example - Reich - Piano Phase",
+          "file": "Tutorials/Formula Modulator/11 Example - Reich - Piano Phase.fxp"
+        },
+        {
+          "sub": "Formula Modulator",
+          "name": "12 A Slew Limiter",
+          "file": "Tutorials/Formula Modulator/12 A Slew Limiter.fxp"
+        },
+        {
+          "sub": "Formula Modulator",
+          "name": "13 Duophony",
+          "file": "Tutorials/Formula Modulator/13 Duophony.fxp"
+        }
+      ]
+    },
+    {
+      "name": "Vocoder",
+      "patches": [
+        {
+          "sub": "",
+          "name": "Noise",
+          "file": "Vocoder/Noise.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Pop",
+          "file": "Vocoder/Pop.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Solo",
+          "file": "Vocoder/Solo.fxp"
+        }
+      ]
+    },
+    {
+      "name": "Winds",
+      "patches": [
+        {
+          "sub": "",
+          "name": "Clarinet",
+          "file": "Winds/Clarinet.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Cyber Flute",
+          "file": "Winds/Cyber Flute.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Dreamy Flute",
+          "file": "Winds/Dreamy Flute.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Fake Ethno",
+          "file": "Winds/Fake Ethno.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Flute 1",
+          "file": "Winds/Flute 1.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Flute 2",
+          "file": "Winds/Flute 2.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Low",
+          "file": "Winds/Low.fxp"
+        },
+        {
+          "sub": "",
+          "name": "Tragic Winds",
+          "file": "Winds/Tragic Winds.fxp"
+        }
+      ]
+    }
+  ],
+  "root": "/resources/data/patches_factory",
+  "count": 639
+}

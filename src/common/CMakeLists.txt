@@ -282,7 +282,8 @@ if(APPLE)
 elseif(UNIX)
   target_compile_definitions(${PROJECT_NAME} PUBLIC LINUX=1)
 
-  if(SKBUILD)
+  if(SKBUILD OR EMSCRIPTEN)
+    # Emscripten's wasm-ld rejects -Wl,--no-undefined; also no real pthread link.
     target_link_libraries(${PROJECT_NAME} PRIVATE
       pthread
     )
