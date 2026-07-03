@@ -1,0 +1,17 @@
+{
+  "name": "Surge XT",
+  "vendor": "Surge Synth Team",
+  "version": "1.4.0",
+  "apiVersion": "2.0.0",
+  "thumbnail": "",
+  "keywords": ["synthesizer", "instrument", "wavetable"],
+  "isInstrument": true,
+  "description": "The Surge XT synthesis engine, compiled to WebAssembly and wrapped as a Web Audio Module. Runs the full headless DSP inside an AudioWorklet.",
+  "website": "https://surge-synthesizer.github.io/",
+  "hasAudioInput": false,
+  "hasAudioOutput": true,
+  "hasMidiInput": true,
+  "hasMidiOutput": false,
+  "hasAutomationInput": true,
+  "hasAutomationOutput": false
+}

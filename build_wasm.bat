@@ -15,7 +15,7 @@ rem --- run from the repo root (this script's directory) ---
 cd /d "%~dp0"
 
 rem --- locate the Emscripten SDK ---
-if "%EMSDK%"=="" set "EMSDK=C:\Users\tjt\GitHub\emsdk"
+if "%EMSDK%"=="" set "EMSDK=%USERPROFILE%\GitHub\emsdk"
 if not exist "%EMSDK%\emsdk_env.bat" (
   echo ERROR: emsdk not found at "%EMSDK%".
   echo        Set the EMSDK environment variable to your emsdk checkout and retry.
@@ -92,6 +92,6 @@ echo === WASM build complete ===
 echo   wasm\web\surge.js
 echo   wasm\web\surge.wasm
 echo.
-echo To run the demo: serve the repo root and open /wasm/web/index.html
-echo   e.g.  python -m http.server 8777
+echo To run the demo:  run_wasm.cmd
+echo   ^(serves the repo root and opens /wasm/web/index.html^)
 endlocal

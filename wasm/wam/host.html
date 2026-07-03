@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Surge XT — Web Audio Module</title>
+<style>
+  :root { --bg:#1a1d23; --ink:#e8eaed; --muted:#9aa0a6; --accent:#ff9500; }
+  * { box-sizing:border-box; }
+  body { margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+         background:var(--bg); color:var(--ink); }
+  header { padding:20px 24px 8px; }
+  h1 { margin:0; font-size:20px; font-weight:650; }
+  h1 span { color:var(--accent); }
+  .sub { color:var(--muted); font-size:13px; margin-top:4px; }
+  main { max-width:640px; margin:0 auto; padding:16px 24px 48px; }
+  button.primary { font:inherit; background:var(--accent); color:#201400; border:none;
+                   border-radius:8px; padding:10px 16px; font-weight:650; cursor:pointer; }
+  #status { font-size:13px; color:var(--muted); margin:14px 0; min-height:18px; }
+  #status.err { color:#ff6b6b; }
+  #mount { margin-top:8px; }
+  code { background:#2c313a; padding:1px 5px; border-radius:4px; font-size:12px; }
+  .hint { color:var(--muted); font-size:12px; margin-top:16px; line-height:1.6; }
+</style>
+</head>
+<body>
+<header>
+  <h1><span>Surge XT</span> — Web Audio Module</h1>
+  <div class="sub">A WAM 2.0 host loading the Surge engine, whose DSP runs inside an AudioWorklet.</div>
+</header>
+<main>
+  <button id="power" class="primary">▶ Load &amp; Start</button>
+  <div id="status">Click to load the WAM and start audio.</div>
+  <div id="mount"></div>
+  <div class="hint">
+    This page acts as a minimal WAM host: it calls
+    <code>SurgeWAM.createInstance()</code>, connects the module's
+    <code>audioNode</code> to the speakers, and mounts its GUI. Computer keyboard:
+    <code>A W S E D F T G Y H U J K</code> play the lower octave.
+  </div>
+</main>
+
+<script type="module">
+  import SurgeWAM from './index.js';
+
+  const powerBtn = document.getElementById('power');
+  const statusEl = document.getElementById('status');
+  const mount = document.getElementById('mount');
+  const setStatus = (m, err) => { statusEl.textContent = m; statusEl.className = err ? 'err' : ''; };
+
+  let ctx, wam;
+
+  powerBtn.addEventListener('click', async () => {
+    if (ctx) {
+      await ctx.close(); ctx = null; wam = null; mount.innerHTML = '';
+      powerBtn.textContent = '▶ Load & Start';
+      setStatus('Stopped. Click to start again.');
+      return;
+    }
+    try {
+      powerBtn.disabled = true;
+      setStatus('Creating AudioContext…');
+      ctx = new (window.AudioContext || window.webkitAudioContext)();
+      await ctx.resume();
+
+      setStatus('Loading Surge WAM (compiling engine in the worklet)…');
+      wam = await SurgeWAM.createInstance('surge-host', ctx);
+      wam.audioNode.connect(ctx.destination);
+
+      const gui = await wam.createGui();
+      mount.appendChild(gui);
+
+      // computer keyboard -> WAM MIDI
+      const KEYMAP = { a:0,w:1,s:2,e:3,d:4,f:5,t:6,g:7,y:8,h:9,u:10,j:11,k:12 };
+      const base = 5 * 12; // C4 = 60
+      const downKeys = new Map();
+      window.addEventListener('keydown', e => {
+        const k = e.key.toLowerCase();
+        if (e.repeat || !(k in KEYMAP) || downKeys.has(k)) return;
+        const note = base + KEYMAP[k]; downKeys.set(k, note); wam.audioNode.noteOn(note, 100);
+      });
+      window.addEventListener('keyup', e => {
+        const k = e.key.toLowerCase();
+        if (downKeys.has(k)) { wam.audioNode.noteOff(downKeys.get(k)); downKeys.delete(k); }
+      });
+
+      setStatus(`Running · ${Math.round(ctx.sampleRate)} Hz · engine block ${wam.audioNode.blockSize}. Play!`);
+      powerBtn.textContent = '■ Stop';
+    } catch (err) {
+      console.error(err);
+      setStatus('Failed: ' + (err && err.message ? err.message : err), true);
+      if (ctx) { await ctx.close(); ctx = null; }
+    } finally {
+      powerBtn.disabled = false;
+    }
+  });
+</script>
+</body>
+</html>

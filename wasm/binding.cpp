@@ -42,6 +42,13 @@ class SurgeBridge
         synth->time_data.tempo = 120;
         synth->time_data.ppqPos = 0;
         interleaved.reserve(2 * 2048);
+
+        // The bare headless init patch defaults filter 1 to fut_none (bypass), so
+        // the exposed cutoff/resonance/EG-depth parameters would be inaudible.
+        // Start with an active 24 dB lowpass - a sensible, musical default.
+        synth->storage.getPatch().scene[0].filterunit[0].type.val.i =
+            sst::filters::fut_lp24;
+        synth->storage.getPatch().update_controls(false);
     }
 
     int blockSize() const { return synth->getBlockSize(); }
@@ -74,6 +81,72 @@ class SurgeBridge
             patch.scene[0].osc[o].type.val.i = type;
         }
         synth->storage.getPatch().update_controls(false);
+    }
+
+    // --- Curated automatable parameters ------------------------------------
+    // A small, musically important subset of scene-A parameters exposed to WAM
+    // automation, addressed by index. Keep this in sync with PARAM_INFO in the
+    // WAM processor (surge-wam-processor.js). Values are normalized 0..1 so the
+    // WAM parameter range maps straight through with no unit conversion.
+    Parameter *curatedParam(int which)
+    {
+        auto &sc = synth->storage.getPatch().scene[0];
+        switch (which)
+        {
+        case 0:  return &sc.filterunit[0].cutoff;
+        case 1:  return &sc.filterunit[0].resonance;
+        case 2:  return &sc.filterunit[0].envmod;
+        case 3:  return &sc.adsr[0].a; // amp EG
+        case 4:  return &sc.adsr[0].d;
+        case 5:  return &sc.adsr[0].s;
+        case 6:  return &sc.adsr[0].r;
+        case 7:  return &sc.adsr[1].a; // filter EG
+        case 8:  return &sc.adsr[1].d;
+        case 9:  return &sc.adsr[1].s;
+        case 10: return &sc.adsr[1].r;
+        case 11: return &sc.lfo[0].rate;
+        default: return nullptr;
+        }
+    }
+
+    // Set a curated parameter from a normalized 0..1 value.
+    void setParamNorm(int which, float v01)
+    {
+        if (auto *p = curatedParam(which))
+            p->set_value_f01(v01);
+    }
+
+    // Read a curated parameter's current normalized 0..1 value (reflects the
+    // loaded patch, so hosts can re-sync after loadPatchBytes()).
+    float getParamNorm(int which)
+    {
+        auto *p = curatedParam(which);
+        return p ? p->get_value_f01() : 0.f;
+    }
+
+    // --- Filter 1 type (a discrete choice, exposed separately) --------------
+    int numFilterTypes() const { return (int)sst::filters::num_filter_types; }
+
+    std::string filterTypeName(int i) const
+    {
+        if (i < 0 || i >= (int)sst::filters::num_filter_types)
+            return "";
+        return sst::filters::filter_type_names[i];
+    }
+
+    void setFilterType(int type)
+    {
+        const int n = (int)sst::filters::num_filter_types;
+        type = type < 0 ? 0 : (type >= n ? n - 1 : type);
+        auto &fu = synth->storage.getPatch().scene[0].filterunit[0];
+        fu.type.val.i = type;
+        fu.subtype.val.i = 0;
+        synth->storage.getPatch().update_controls(false);
+    }
+
+    int getFilterType() const
+    {
+        return synth->storage.getPatch().scene[0].filterunit[0].type.val.i;
     }
 
     // Load a factory .fxp patch supplied as raw bytes (a JS Uint8Array). The
@@ -140,6 +213,12 @@ EMSCRIPTEN_BINDINGS(surge)
         .function("controller", &SurgeBridge::controller)
         .function("allNotesOff", &SurgeBridge::allNotesOff)
         .function("setOscType", &SurgeBridge::setOscType)
+        .function("setParamNorm", &SurgeBridge::setParamNorm)
+        .function("getParamNorm", &SurgeBridge::getParamNorm)
+        .function("numFilterTypes", &SurgeBridge::numFilterTypes)
+        .function("filterTypeName", &SurgeBridge::filterTypeName)
+        .function("setFilterType", &SurgeBridge::setFilterType)
+        .function("getFilterType", &SurgeBridge::getFilterType)
         .function("loadPatchBytes", &SurgeBridge::loadPatchBytes)
         .function("patchName", &SurgeBridge::patchName)
         .function("patchAuthor", &SurgeBridge::patchAuthor)
