@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Surge XT Effects — Web Audio Module</title>
+<style>
+  :root { --bg:#1a1d23; --ink:#e8eaed; --muted:#9aa0a6; --accent:#ff9500; }
+  * { box-sizing:border-box; }
+  body { margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif; background:var(--bg); color:var(--ink); }
+  header { padding:20px 24px 8px; }
+  h1 { margin:0; font-size:20px; font-weight:650; }
+  h1 span { color:var(--accent); }
+  .sub { color:var(--muted); font-size:13px; margin-top:4px; }
+  main { max-width:640px; margin:0 auto; padding:16px 24px 48px; }
+  button.primary { font:inherit; background:var(--accent); color:#201400; border:none; border-radius:8px; padding:10px 16px; font-weight:650; cursor:pointer; }
+  button, select { font:inherit; color:var(--ink); background:#2c313a; border:1px solid #3a4049; border-radius:8px; padding:8px 10px; cursor:pointer; }
+  .row { display:flex; gap:14px; align-items:flex-end; flex-wrap:wrap; margin:14px 0; }
+  .ctl { display:flex; flex-direction:column; gap:5px; }
+  label { font-size:11px; text-transform:uppercase; letter-spacing:.5px; color:var(--muted); }
+  #status { font-size:13px; color:var(--muted); margin:14px 0; min-height:18px; }
+  #status.err { color:#ff6b6b; }
+  #mount { margin-top:8px; }
+  .hint { color:var(--muted); font-size:12px; margin-top:16px; line-height:1.6; }
+  code { background:#2c313a; padding:1px 5px; border-radius:4px; font-size:12px; }
+</style>
+</head>
+<body>
+<header>
+  <h1><span>Surge XT Effects</span> — Web Audio Module</h1>
+  <div class="sub">A WAM 2.0 audio-effect host: feeds a source through Surge's effects, whose DSP runs in an AudioWorklet.</div>
+</header>
+<main>
+  <button id="power" class="primary">▶ Load &amp; Start</button>
+  <div class="row" id="controls" style="display:none">
+    <div class="ctl">
+      <label for="src">Input Source</label>
+      <select id="src">
+        <option value="tone">Test Tone (saw drone)</option>
+        <option value="noise">White Noise</option>
+        <option value="mic">Microphone</option>
+        <option value="off">Off (tails only)</option>
+      </select>
+    </div>
+    <button id="pluck">♪ Pluck (hear tails)</button>
+  </div>
+  <div id="status">Click to load the effects WAM and start audio.</div>
+  <div id="mount"></div>
+  <div class="hint">
+    This page is a minimal WAM host: it calls <code>SurgeFXWAM.createInstance()</code>,
+    routes an input source into the module's <code>audioNode</code>, and connects the
+    output to the speakers. Pick an effect and tweak its parameters in the panel.
+  </div>
+</main>
+
+<script type="module">
+  import SurgeFXWAM from './index.js';
+
+  const powerBtn = document.getElementById('power');
+  const statusEl = document.getElementById('status');
+  const mount = document.getElementById('mount');
+  const controls = document.getElementById('controls');
+  const srcSel = document.getElementById('src');
+  const pluckBtn = document.getElementById('pluck');
+  const setStatus = (m, err) => { statusEl.textContent = m; statusEl.className = err ? 'err' : ''; };
+
+  let ctx, wam, srcNode, micStream;
+
+  function stopSource() {
+    if (srcNode) { try { srcNode.stop && srcNode.stop(); } catch (_) {} srcNode.disconnect(); srcNode = null; }
+    if (micStream) { micStream.getTracks().forEach(t => t.stop()); micStream = null; }
+  }
+
+  async function setSource(kind) {
+    stopSource();
+    if (!wam) return;
+    const dest = wam.audioNode;
+    if (kind === 'tone') {
+      const o = ctx.createOscillator(); o.type = 'sawtooth'; o.frequency.value = 110;
+      const g = ctx.createGain(); g.gain.value = 0.25; o.connect(g); g.connect(dest); o.start();
+      srcNode = o; srcNode.disconnect = () => { o.disconnect(); g.disconnect(); };
+    } else if (kind === 'noise') {
+      const len = ctx.sampleRate * 2;
+      const buf = ctx.createBuffer(1, len, ctx.sampleRate);
+      const d = buf.getChannelData(0);
+      // deterministic-ish noise
+      let s = 12345; for (let i = 0; i < len; i++) { s = (s * 1103515245 + 12345) & 0x7fffffff; d[i] = (s / 0x40000000 - 1) * 0.3; }
+      const n = ctx.createBufferSource(); n.buffer = buf; n.loop = true; n.connect(dest); n.start();
+      srcNode = n;
+    } else if (kind === 'mic') {
+      try {
+        micStream = await navigator.mediaDevices.getUserMedia({ audio: { echoCancellation: false, noiseSuppression: false } });
+        const m = ctx.createMediaStreamSource(micStream); m.connect(dest);
+        srcNode = m; srcNode.disconnect = () => m.disconnect();
+      } catch (e) { setStatus('Microphone unavailable: ' + (e.message || e), true); }
+    }
+    // 'off' leaves no source connected
+  }
+
+  function pluck() {
+    if (!wam) return;
+    const o = ctx.createOscillator(); o.type = 'triangle'; o.frequency.value = 220;
+    const g = ctx.createGain(); g.gain.value = 0.0001;
+    o.connect(g); g.connect(wam.audioNode);
+    const t = ctx.currentTime;
+    g.gain.setValueAtTime(0.0001, t);
+    g.gain.exponentialRampToValueAtTime(0.6, t + 0.005);
+    g.gain.exponentialRampToValueAtTime(0.0001, t + 0.25);
+    o.start(t); o.stop(t + 0.3);
+  }
+
+  powerBtn.addEventListener('click', async () => {
+    if (ctx) {
+      stopSource(); await ctx.close(); ctx = null; wam = null; mount.innerHTML = '';
+      controls.style.display = 'none';
+      powerBtn.textContent = '▶ Load & Start';
+      setStatus('Stopped. Click to start again.');
+      return;
+    }
+    try {
+      powerBtn.disabled = true;
+      setStatus('Creating AudioContext…');
+      ctx = new (window.AudioContext || window.webkitAudioContext)();
+      await ctx.resume();
+
+      setStatus('Loading Surge Effects WAM (compiling engine in the worklet)…');
+      wam = await SurgeFXWAM.createInstance('surge-fx-host', ctx);
+      wam.audioNode.connect(ctx.destination);
+
+      const gui = await wam.createGui();
+      mount.appendChild(gui);
+
+      await setSource(srcSel.value);
+      controls.style.display = 'flex';
+      setStatus(`Running · ${Math.round(ctx.sampleRate)} Hz · engine block ${wam.audioNode.blockSize}. Pick an effect!`);
+      powerBtn.textContent = '■ Stop';
+    } catch (err) {
+      console.error(err);
+      setStatus('Failed: ' + (err && err.message ? err.message : err), true);
+      if (ctx) { await ctx.close(); ctx = null; }
+    } finally {
+      powerBtn.disabled = false;
+    }
+  });
+
+  srcSel.addEventListener('change', () => setSource(srcSel.value));
+  pluckBtn.addEventListener('click', pluck);
+</script>
+</body>
+</html>

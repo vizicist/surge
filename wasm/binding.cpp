@@ -16,6 +16,7 @@
 
 #include "SurgeSynthesizer.h"
 #include "SurgeStorage.h"
+#include "Effect.h"
 
 using namespace emscripten;
 
@@ -202,6 +203,196 @@ class SurgeBridge
     std::vector<float> interleaved;
 };
 
+/*
+ * Surge XT effects bridge.
+ *
+ * An audio *effect* rather than an instrument: it hosts a single Surge Effect
+ * (chosen from the 31 fx types) and runs incoming stereo audio through it. Like
+ * the standalone surge-fx product, it drives an Effect directly - no voices, no
+ * notes - so it's fully self-contained.
+ *
+ * A SurgeSynthesizer is created only to obtain an initialized SurgeStorage /
+ * patch (which assigns each fx parameter an id into the global `pdata` array
+ * that effects read through). We host our own Effect on fx slot 0's FxStorage
+ * and copy that slot's parameter values into globaldata each block.
+ */
+class SurgeFXBridge
+{
+  public:
+    explicit SurgeFXBridge(float sampleRate)
+    {
+        layer = std::make_unique<WasmPluginLayer>();
+        synth = std::make_unique<SurgeSynthesizer>(
+            layer.get(), SurgeStorage::skipPatchLoadDataPathSentinel);
+        synth->setSamplerate(sampleRate);
+        // 120 BPM reference so tempo-synced effects (delays, LFOs) have a ratio.
+        synth->storage.temposyncratio = 1.f;
+        synth->storage.temposyncratio_inv = 1.f;
+        outBuf.reserve(2 * 2048);
+
+        // Expose every effect type except a few that can't run in this minimal
+        // standalone harness. fxt_spring_reverb (chowdsp) reads past its delay
+        // line here (memory access out of bounds), so it's excluded rather than
+        // risk crashing the audio thread. All other 31 types work.
+        for (int i = 0; i < n_fx_types; i++)
+            if (i != fxt_spring_reverb)
+                availFx.push_back(i);
+
+        setEffectType(availIndexOf(fxt_reverb2)); // pleasant, obviously-audible default
+    }
+
+    int blockSize() const { return BLOCK_SIZE; }
+    int numEffectTypes() const { return (int)availFx.size(); }
+    std::string effectTypeName(int i) const
+    {
+        if (i < 0 || i >= (int)availFx.size())
+            return "";
+        return fx_type_names[availFx[i]];
+    }
+    int numParams() const { return n_fx_params; }
+    // Returned as an index into the exposed (filtered) effect list.
+    int getEffectType() const { return availIndexOf(curType); }
+
+    // Swap in a new effect by its index in the exposed list. Mirrors
+    // SurgeSynthesizer's fx (re)load: blank the slot's parameters, spawn the
+    // effect, then let it declare its control types and defaults.
+    void setEffectType(int index)
+    {
+        index = index < 0 ? 0 : (index >= (int)availFx.size() ? (int)availFx.size() - 1 : index);
+        const int fxt = availFx[index];
+        auto &patch = synth->storage.getPatch();
+        auto &fxd = patch.fx[kSlot];
+
+        effect.reset();
+        fxd.type.val.i = fxt;
+        for (int j = 0; j < n_fx_params; j++)
+        {
+            fxd.p[j].set_type(ct_none);
+            std::string nm = "Param " + std::to_string(j + 1);
+            fxd.p[j].set_name(nm.c_str());
+            fxd.p[j].val.i = 0;
+            patch.globaldata[fxd.p[j].id].i = 0;
+        }
+
+        if (fxt != fxt_off)
+        {
+            effect.reset(spawn_effect(fxt, &synth->storage, &fxd, patch.globaldata));
+            if (effect)
+            {
+                effect->init_ctrltypes();
+                effect->init_default_values();
+                // Publish the defaults into globaldata BEFORE init(): effects read
+                // their parameters from there (via pd_float), and some compute
+                // persistent state in init() (e.g. Distortion's filter/drive coeffs)
+                // that isn't fully recomputed per block.
+                publishParams();
+                effect->init();
+            }
+        }
+        curType = fxt;
+    }
+
+    // Copy this slot's parameter values into globaldata, where the effect reads
+    // them (Effect::pd_float/pd_int point at globaldata[p.id]).
+    void publishParams()
+    {
+        auto &patch = synth->storage.getPatch();
+        auto &fxd = patch.fx[kSlot];
+        for (int j = 0; j < n_fx_params; j++)
+            patch.globaldata[fxd.p[j].id] = fxd.p[j].val;
+    }
+
+    // Per-parameter access. Inactive params (ct_none) aren't used by the effect.
+    bool paramActive(int i) const
+    {
+        if (i < 0 || i >= n_fx_params)
+            return false;
+        return synth->storage.getPatch().fx[kSlot].p[i].ctrltype != ct_none;
+    }
+    std::string paramName(int i) const
+    {
+        if (i < 0 || i >= n_fx_params)
+            return "";
+        return synth->storage.getPatch().fx[kSlot].p[i].get_name();
+    }
+    void setParamNorm(int i, float v01)
+    {
+        if (i < 0 || i >= n_fx_params)
+            return;
+        synth->storage.getPatch().fx[kSlot].p[i].set_value_f01(v01);
+    }
+    float getParamNorm(int i) const
+    {
+        if (i < 0 || i >= n_fx_params)
+            return 0.f;
+        return synth->storage.getPatch().fx[kSlot].p[i].get_value_f01();
+    }
+
+    // Run `frames` frames of interleaved stereo input (a JS Float32Array) through
+    // the effect and return an interleaved-stereo view of the output. `frames`
+    // should be a whole number of engine blocks; any remainder passes through dry.
+    val process(val jsInterleavedIn, int frames)
+    {
+        std::vector<float> in = convertJSArrayToNumberVector<float>(jsInterleavedIn);
+        outBuf.assign((size_t)frames * 2, 0.f);
+
+        const int bs = BLOCK_SIZE;
+        float L alignas(16)[BLOCK_SIZE];
+        float R alignas(16)[BLOCK_SIZE];
+
+        int off = 0;
+        for (; off + bs <= frames; off += bs)
+        {
+            for (int i = 0; i < bs; i++)
+            {
+                L[i] = in[(size_t)(off + i) * 2 + 0];
+                R[i] = in[(size_t)(off + i) * 2 + 1];
+            }
+            if (effect)
+            {
+                publishParams(); // push current parameter values where the effect reads them
+                // Drive via process_ringout, not process(): it maintains the base
+                // `ringout` counter that some effects (e.g. Distortion) use to fade
+                // their output, and lets tail-producing effects (reverb, delay) ring
+                // out when the input goes silent. Detect presence from the block.
+                bool present = false;
+                for (int i = 0; i < bs && !present; i++)
+                    present = (L[i] != 0.f) || (R[i] != 0.f);
+                effect->process_ringout(L, R, present);
+            }
+            for (int i = 0; i < bs; i++)
+            {
+                outBuf[(size_t)(off + i) * 2 + 0] = L[i];
+                outBuf[(size_t)(off + i) * 2 + 1] = R[i];
+            }
+        }
+        for (int i = off; i < frames; i++) // dry passthrough for any tail
+        {
+            outBuf[(size_t)i * 2 + 0] = in[(size_t)i * 2 + 0];
+            outBuf[(size_t)i * 2 + 1] = in[(size_t)i * 2 + 1];
+        }
+        return val(typed_memory_view(outBuf.size(), outBuf.data()));
+    }
+
+  private:
+    // Index of a raw fx type within the exposed (filtered) list; 0 if absent.
+    int availIndexOf(int fxt) const
+    {
+        for (int i = 0; i < (int)availFx.size(); i++)
+            if (availFx[i] == fxt)
+                return i;
+        return 0;
+    }
+
+    static constexpr int kSlot = 0;
+    std::unique_ptr<WasmPluginLayer> layer;
+    std::unique_ptr<SurgeSynthesizer> synth;
+    std::unique_ptr<Effect> effect;
+    std::vector<float> outBuf;
+    std::vector<int> availFx; // raw fx type ids we expose, in order
+    int curType = 0;          // current raw fx type
+};
+
 EMSCRIPTEN_BINDINGS(surge)
 {
     class_<SurgeBridge>("SurgeBridge")
@@ -224,4 +415,18 @@ EMSCRIPTEN_BINDINGS(surge)
         .function("patchAuthor", &SurgeBridge::patchAuthor)
         .function("patchCategory", &SurgeBridge::patchCategory)
         .function("render", &SurgeBridge::render);
+
+    class_<SurgeFXBridge>("SurgeFXBridge")
+        .constructor<float>()
+        .function("blockSize", &SurgeFXBridge::blockSize)
+        .function("numEffectTypes", &SurgeFXBridge::numEffectTypes)
+        .function("effectTypeName", &SurgeFXBridge::effectTypeName)
+        .function("numParams", &SurgeFXBridge::numParams)
+        .function("getEffectType", &SurgeFXBridge::getEffectType)
+        .function("setEffectType", &SurgeFXBridge::setEffectType)
+        .function("paramActive", &SurgeFXBridge::paramActive)
+        .function("paramName", &SurgeFXBridge::paramName)
+        .function("setParamNorm", &SurgeFXBridge::setParamNorm)
+        .function("getParamNorm", &SurgeFXBridge::getParamNorm)
+        .function("process", &SurgeFXBridge::process);
 }

@@ -1,0 +1,17 @@
+{
+  "name": "Surge XT Effects",
+  "vendor": "Surge Synth Team",
+  "version": "1.4.0",
+  "apiVersion": "2.0.0",
+  "thumbnail": "",
+  "keywords": ["effect", "reverb", "delay", "distortion", "filter"],
+  "isInstrument": false,
+  "description": "Surge XT's effects, compiled to WebAssembly and wrapped as a Web Audio Module. Runs incoming audio through any of Surge's 31 effect types inside an AudioWorklet.",
+  "website": "https://surge-synthesizer.github.io/",
+  "hasAudioInput": true,
+  "hasAudioOutput": true,
+  "hasMidiInput": false,
+  "hasMidiOutput": false,
+  "hasAutomationInput": true,
+  "hasAutomationOutput": false
+}

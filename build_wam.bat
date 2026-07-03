@@ -96,6 +96,7 @@ echo === WAM build complete ===
 echo   wasm\wam\surge-wam-dsp.js
 echo   wasm\wam\surge-wam-dsp.wasm
 echo.
-echo To try it:  run_wam.cmd
-echo   ^(serves the repo root and opens /wasm/wam/host.html^)
+echo This DSP module backs both WAM hosts (synth + effects). To try them:
+echo   run_wam.cmd     ^(synth  -^> /wasm/wam/host.html^)
+echo   run_wamfx.cmd   ^(effects -^> /wasm/wam-fx/host.html^)
 endlocal
