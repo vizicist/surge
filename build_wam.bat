@@ -12,20 +12,17 @@ rem  Reuses the build_wasm\ CMake tree if it already exists, so surge-common is
 rem  not recompiled from scratch - run build_wasm.bat first for the fast path.
 rem
 rem  Requirements: Visual Studio 2022 (for its bundled CMake + Ninja) and the
-rem  Emscripten SDK. Override the emsdk location by setting EMSDK before running.
+rem  Emscripten SDK. Override its location with EMSDK; if none is found, Git is
+rem  used to install it. Set EMSDK_AUTO_INSTALL=0 to disable auto-installation.
 rem ===========================================================================
 setlocal enableextensions enabledelayedexpansion
 
 rem --- run from the repo root (this script's directory) ---
 cd /d "%~dp0"
 
-rem --- locate the Emscripten SDK ---
-if "%EMSDK%"=="" set "EMSDK=%USERPROFILE%\GitHub\emsdk"
-if not exist "%EMSDK%\emsdk_env.bat" (
-  echo ERROR: emsdk not found at "%EMSDK%".
-  echo        Set the EMSDK environment variable to your emsdk checkout and retry.
-  exit /b 1
-)
+rem --- locate (and, if needed, install) the Emscripten SDK ---
+call "scripts\win\setup-emsdk.bat"
+if errorlevel 1 exit /b 1
 
 rem --- put Visual Studio's CMake + Ninja on PATH (via vswhere) ---
 set "VSWHERE=%ProgramFiles(x86)%\Microsoft Visual Studio\Installer\vswhere.exe"
@@ -35,9 +32,6 @@ if exist "%VSWHERE%" (
 if defined VSINSTALL (
   set "PATH=!VSINSTALL!\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin;!VSINSTALL!\Common7\IDE\CommonExtensions\Microsoft\CMake\Ninja;!PATH!"
 )
-
-rem --- activate Emscripten (adds emcc + its bundled node/python to PATH) ---
-call "%EMSDK%\emsdk_env.bat" >nul 2>&1
 
 where cmake >nul 2>&1
 if errorlevel 1 (
@@ -49,7 +43,7 @@ if errorlevel 1 (
 rem --- configure the build tree if it isn't there yet (same flags as build_wasm) ---
 if not exist "build_wasm\build.ninja" (
   echo Configuring build_wasm\ ...
-  call "%EMSDK%\upstream\emscripten\emcmake.bat" cmake -G Ninja -B build_wasm ^
+  call "%EMSDK_EMCMAKE%" cmake -G Ninja -B build_wasm ^
     -DCMAKE_BUILD_TYPE=Release ^
     -DSURGE_BUILD_WASM=TRUE ^
     -DSURGE_SKIP_JUCE_FOR_RACK=TRUE ^
