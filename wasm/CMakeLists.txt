@@ -30,6 +30,10 @@ target_link_options(surgewasm PRIVATE
   "-sEXPORT_NAME=createSurgeModule"
   "-sENVIRONMENT=web"
   "-sALLOW_MEMORY_GROWTH=1"
+  # Emscripten 6's experimental resizable ArrayBuffer views are rejected by
+  # TextDecoder in current Chromium. Keep memory growth, but refresh fixed
+  # views after a grow instead.
+  "-sGROWABLE_ARRAYBUFFERS=0"
   "-sINITIAL_MEMORY=67108864"
   "-sSTACK_SIZE=1048576"
   "-sASSERTIONS=1"
