@@ -119,7 +119,19 @@ class SurgeWamProcessor extends AudioWorkletProcessor {
             if (typeof createSurgeModule !== 'function') {
                 throw new Error('surge-wam-dsp.js was not loaded into the worklet scope');
             }
-            const Module = await createSurgeModule({ wasmBinary });
+            // An AudioWorkletGlobalScope is neither a Window nor a WorkerGlobalScope,
+            // so Emscripten's glue defines no fetch/XHR loader and can't read its own
+            // .wasm - and this build ignores Module.wasmBinary. Instantiate the bytes
+            // handed over from the main thread ourselves via the instantiateWasm hook.
+            const Module = await createSurgeModule({
+                instantiateWasm: (imports, success) => {
+                    WebAssembly.instantiate(wasmBinary, imports)
+                        .then(({ instance }) => success(instance))
+                        .catch((e) => this.port.postMessage({ verb: 'error',
+                            payload: 'instantiateWasm: ' + String(e && e.stack || e) }));
+                    return {}; // async: real exports are delivered through success()
+                },
+            });
             this.Module = Module;
             this.bridge = new Module.SurgeBridge(sampleRate);
             this.blockSize = this.bridge.blockSize();
